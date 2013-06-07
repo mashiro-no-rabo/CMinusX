@@ -7,6 +7,17 @@
 //
 
 #import "CMXDocument.h"
+#import "ACEView/ACEView.h"
+#import "ACEView/ACEModeNames.h"
+#import "ACEView/ACEThemeNames.h"
+
+@interface CMXDocument() <ACEViewDelegate>
+
+@property (weak) IBOutlet ACEView *editor;
+@property (weak) IBOutlet NSPopUpButton *theme;
+@property (weak) IBOutlet NSPopUpButton *mode;
+
+@end
 
 @implementation CMXDocument
 
@@ -24,6 +35,19 @@
     // Override returning the nib file name of the document
     // If you need to use a subclass of NSWindowController or if your document supports multiple NSWindowControllers, you should remove this method and override -makeWindowControllers instead.
     return @"CMXDocument";
+}
+
+- (void)awakeFromNib {
+    [self.theme addItemsWithTitles:[ACEThemeNames humanThemeNames]];
+    [self.theme selectItemAtIndex:ACEThemeTomorrowNightEighties];
+    
+    [self.mode addItemWithTitle:@"TM Inst"];
+    [self.mode selectItemAtIndex:0];
+    [self.editor setDelegate:self];
+    [self.editor setMode:ACEModeCPP];
+    [self.editor setTheme:ACEThemeTomorrowNightEighties];
+    [self.editor setShowPrintMargin:NO];
+    [self.editor setShowInvisibles:YES];
 }
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
@@ -54,6 +78,18 @@
     NSException *exception = [NSException exceptionWithName:@"UnimplementedMethod" reason:[NSString stringWithFormat:@"%@ is unimplemented", NSStringFromSelector(_cmd)] userInfo:nil];
     @throw exception;
     return YES;
+}
+
+#pragma mark - Actions
+
+- (IBAction)themeChanged:(id)sender {
+    [self.editor setTheme:[self.theme indexOfSelectedItem]];
+}
+
+#pragma mark - ACEViewDelegate
+
+- (void) textDidChange:(NSNotification *)notification {
+    // nothing
 }
 
 @end
