@@ -23,6 +23,8 @@
 
 @property (strong, nonatomic) TinyMachine *tm;
 
+@property (strong, nonatomic) NSMutableDictionary *savedData;
+
 @end
 
 @implementation CMXDocument
@@ -32,6 +34,7 @@
     self = [super init];
     if (self) {
         self.tm = [TinyMachine new];
+        self.savedData = [NSMutableDictionary new];
     }
     return self;
 }
@@ -54,6 +57,14 @@
     [self.editor setTheme:ACEThemeTomorrowNightEighties];
     [self.editor setShowPrintMargin:NO];
     [self.editor setShowInvisibles:YES];
+    
+    if ([self.savedData objectForKey:@"editorContent"]) {
+        [self.editor setString:[self.savedData objectForKey:@"editorContent"]];
+    }
+    
+    if ([self.savedData objectForKey:@"inputContent"]) {
+        [self.input setStringValue:[self.savedData objectForKey:@"inputContent"]];
+    }
 }
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
@@ -69,20 +80,20 @@
 
 - (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError
 {
-    // Insert code here to write your document to data of the specified type. If outError != NULL, ensure that you create and set an appropriate error when returning nil.
-    // You can also choose to override -fileWrapperOfType:error:, -writeToURL:ofType:error:, or -writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
-    NSException *exception = [NSException exceptionWithName:@"UnimplementedMethod" reason:[NSString stringWithFormat:@"%@ is unimplemented", NSStringFromSelector(_cmd)] userInfo:nil];
-    @throw exception;
-    return nil;
+    NSMutableData *data = [NSMutableData new];
+    NSKeyedArchiver *ka = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    [ka encodeObject:self.editor.string forKey:@"editorContent"];
+    [ka encodeObject:self.input.stringValue forKey:@"inputContent"];
+    [ka finishEncoding];
+    return data;
 }
 
 - (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError
 {
-    // Insert code here to read your document from the given data of the specified type. If outError != NULL, ensure that you create and set an appropriate error when returning NO.
-    // You can also choose to override -readFromFileWrapper:ofType:error: or -readFromURL:ofType:error: instead.
-    // If you override either of these, you should also override -isEntireFileLoaded to return NO if the contents are lazily loaded.
-    NSException *exception = [NSException exceptionWithName:@"UnimplementedMethod" reason:[NSString stringWithFormat:@"%@ is unimplemented", NSStringFromSelector(_cmd)] userInfo:nil];
-    @throw exception;
+    NSKeyedUnarchiver *unka = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+    [self.savedData setObject:[unka decodeObjectForKey:@"editorContent"] forKey:@"editorContent"];
+    [self.savedData setObject:[unka decodeObjectForKey:@"inputContent"] forKey:@"inputContent"];
+    [unka finishDecoding];
     return YES;
 }
 
