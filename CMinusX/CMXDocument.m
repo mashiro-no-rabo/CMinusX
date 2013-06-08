@@ -11,11 +11,17 @@
 #import "ACEView/ACEModeNames.h"
 #import "ACEView/ACEThemeNames.h"
 
+#import "TinyMachine.h"
+
 @interface CMXDocument() <ACEViewDelegate>
 
 @property (weak) IBOutlet ACEView *editor;
 @property (weak) IBOutlet NSPopUpButton *theme;
 @property (weak) IBOutlet NSPopUpButton *mode;
+@property (weak) IBOutlet NSTextField *input;
+@property (weak) IBOutlet NSTextField *output;
+
+@property (strong, nonatomic) TinyMachine *tm;
 
 @end
 
@@ -25,7 +31,7 @@
 {
     self = [super init];
     if (self) {
-        // Add your subclass-specific initialization here.
+        self.tm = [TinyMachine new];
     }
     return self;
 }
@@ -84,6 +90,13 @@
 
 - (IBAction)themeChanged:(id)sender {
     [self.editor setTheme:[self.theme indexOfSelectedItem]];
+}
+
+- (IBAction)run:(id)sender {
+    self.tm.input = [[self.input stringValue] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@", "]];
+    [self.tm fillInstMemWithString:self.editor.string];
+    [self.tm run];
+    [self.output setStringValue:[self.tm.output componentsJoinedByString:@", "]];
 }
 
 #pragma mark - ACEViewDelegate

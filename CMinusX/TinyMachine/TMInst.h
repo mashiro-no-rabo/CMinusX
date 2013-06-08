@@ -44,9 +44,9 @@ typedef enum {
 @property NSString *rawInst;
 @property NSUInteger lineNo; // associated line number
 
-@property int arg_R; // opcode R, S, T
-@property int arg_S;
-@property int arg_T; // opcode R, T(S)
+@property long long arg_R; // opcode R, S, T
+@property long long arg_S;
+@property long long arg_T; // opcode R, T(S)
 
 - (id)initWithString:(NSString *)inst;
 

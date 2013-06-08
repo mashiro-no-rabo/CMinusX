@@ -14,13 +14,19 @@
 #define PC_REG    7
 
 @interface TinyMachine : NSObject {
-    int regs[REGS_SIZE];
+    long long regs[REGS_SIZE];
 }
 
 @property (strong, nonatomic) NSMutableArray *instMem;
 @property (strong, nonatomic) NSMutableArray *dataMem;
+@property (strong, nonatomic) NSArray *input;
+@property (strong, nonatomic) NSMutableArray *output;
 
+- (TMStepResult *)run;
 - (TMStepResult *)step;
 - (TMStepResult *)stepLine;
+
+- (void)clean;
+- (void)fillInstMemWithString:(NSString *)prog;
 
 @end

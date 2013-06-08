@@ -86,15 +86,15 @@
     }
     
     NSArray *argsPart = [[inst substringFromIndex:[instCode length]] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@", ()"]];
-    self.arg_R = [argsPart[0] intValue];
+    self.arg_R = [argsPart[1] longLongValue];
     
     if (self.opClass == opclLRR) {
-        self.arg_S = [argsPart[1] intValue];
-        self.arg_T = [argsPart[2] intValue];
+        self.arg_S = [argsPart[2] longLongValue];
+        self.arg_T = [argsPart[3] longLongValue];
     }
     else {
-        self.arg_S = [argsPart[2] intValue];
-        self.arg_T = [argsPart[1] intValue];
+        self.arg_S = [argsPart[3] longLongValue];
+        self.arg_T = [argsPart[2] longLongValue];
     }
     
     return self;

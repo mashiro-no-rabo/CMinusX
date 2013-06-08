@@ -14,24 +14,37 @@
 
 @implementation TinyMachine
 
-- (id)init {
-    self = [super init];
-    
-    if (self) {
-        self.instMem = [NSMutableArray new];
-        self.dataMem = [NSMutableArray new];
-        for (int i=0; i<REGS_SIZE; i++) {
-            regs[i] = 0;
-        }
+- (void)clean {
+    self.output = [NSMutableArray new];
+    self.dataMem = [NSMutableArray new];
+    for (int i=0; i<REGS_SIZE; i++) {
+        regs[i] = 0;
     }
-    
-    return self;
 }
 
+- (void)fillInstMemWithString:(NSString *)prog {
+    self.instMem = [NSMutableArray new];
+    NSArray *lines = [prog componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    for (NSString *line in lines) {
+        [self.instMem addObject:[[TMInst alloc] initWithString:line]];
+    }
+}
+
+- (TMStepResult *)run {
+    [self clean];
+    TMStepResult *r = [self step];
+    while (r.type != srHALT) {
+        if (r.type != srOKAY) {
+            return r;
+        }
+        r = [self step];
+    }
+    return r;
+}
 
 - (TMStepResult *)step {
     
-    int pc = regs[PC_REG];
+    long long pc = regs[PC_REG];
     if (pc < 0) {
         TMStepResult *result = [TMStepResult new];
         result.type = srIMEM_ERR;
@@ -40,20 +53,23 @@
     regs[PC_REG] += 1;
     
     TMInst *thisInst = [self.instMem objectAtIndex:pc];
-    int r = thisInst.arg_R;
-    int s = thisInst.arg_S;
-    int t = thisInst.arg_T;
-    int d = thisInst.arg_T;
-    int a = regs[s] + d;
+    long long r = thisInst.arg_R;
+    long long s = thisInst.arg_S;
+    long long t = thisInst.arg_T;
+    long long d = thisInst.arg_T;
+    long long a = regs[s] + d;
+    
+    long long inputPos = 0;
     
     if (thisInst.opCode == opHALT) {
         return [TMStepResult resultHALT];
     }
     else if (thisInst.opCode == opIN) {
-#warning need implement INPUT
+        regs[r] = [[self.input objectAtIndex:inputPos] intValue];
+        inputPos += 1;
     }
     else if (thisInst.opCode == opOUT) {
-        NSLog(@"%d", regs[thisInst.arg_R]);
+        [self.output addObject:[NSNumber numberWithLongLong:regs[r]]];
     }
     else if (thisInst.opCode == opADD) {
         regs[r] = regs[s] + regs[t];
@@ -73,10 +89,10 @@
         regs[r] = regs[s] / regs[t];
     }
     else if (thisInst.opCode == opLD) {
-        regs[r] = [(NSNumber*)[self.dataMem objectAtIndex:a] intValue];
+        regs[r] = [(NSNumber*)[self.dataMem objectAtIndex:a] longLongValue];
     }
     else if (thisInst.opCode == opST) {
-        [self.dataMem replaceObjectAtIndex:a withObject:[NSNumber numberWithInt:regs[r]]];
+        [self.dataMem replaceObjectAtIndex:a withObject:[NSNumber numberWithLongLong:regs[r]]];
     }
     else if (thisInst.opCode == opLDA) {
         regs[r] = a;
