@@ -13,9 +13,7 @@
 #define REGS_SIZE 8
 #define PC_REG    7
 
-@interface TinyMachine : NSObject {
-    long long regs[REGS_SIZE];
-}
+@interface TinyMachine : NSObject 
 
 @property (strong, nonatomic) NSMutableArray *instMem;
 @property (strong, nonatomic) NSMutableArray *dataMem;
@@ -29,6 +27,8 @@
 
 - (TMInst *)thisInst;
 - (TMInst *)nextInst;
+
+- (long long)regContent:(int)index;
 
 - (void)clean;
 - (void)fillInstMemWithString:(NSString *)prog;

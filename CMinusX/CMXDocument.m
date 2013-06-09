@@ -12,6 +12,7 @@
 #import "ACEView/ACEThemeNames.h"
 
 #import "TinyMachine.h"
+#import "DebugInfoWindowController.h"
 
 @interface CMXDocument() <ACEViewDelegate>
 
@@ -23,6 +24,8 @@
 @property (weak) IBOutlet NSButton *runButton;
 @property (weak) IBOutlet NSButton *debugButton;
 @property (weak) IBOutlet NSTextField *status;
+
+@property (strong, nonatomic) DebugInfoWindowController *debugInfo;
 
 @property (strong, nonatomic) TinyMachine *tm;
 @property int nextLine;
@@ -140,6 +143,15 @@
                 self.nextLine = 0;
                 [self.status setStringValue:@"Debug done."];
             }
+            self.debugInfo.reg0.StringValue = [NSString stringWithFormat:@"%lld", [self.tm regContent:0]];
+            self.debugInfo.reg1.StringValue = [NSString stringWithFormat:@"%lld", [self.tm regContent:1]];
+            self.debugInfo.reg2.StringValue = [NSString stringWithFormat:@"%lld", [self.tm regContent:2]];
+            self.debugInfo.reg3.StringValue = [NSString stringWithFormat:@"%lld", [self.tm regContent:3]];
+            self.debugInfo.reg4.StringValue = [NSString stringWithFormat:@"%lld", [self.tm regContent:4]];
+            self.debugInfo.reg5.StringValue = [NSString stringWithFormat:@"%lld", [self.tm regContent:5]];
+            self.debugInfo.reg6.StringValue = [NSString stringWithFormat:@"%lld", [self.tm regContent:6]];
+            self.debugInfo.reg7.StringValue = [NSString stringWithFormat:@"%lld", [self.tm regContent:7]];
+            self.debugInfo.dataMem = [self.tm.dataMem copy];
         }
         else {
             [self.tm clean];
@@ -159,12 +171,15 @@
         [self.debugButton setTitle:@"Quit"];
         self.output.stringValue = @"";
         self.status.stringValue = @"Debugging: Started";
+        self.debugInfo = [DebugInfoWindowController new];
+        [self.debugInfo showWindow:nil];
     }
     else {
         self.debugging = NO;
         [self.runButton setTitle:@"Run"];
         [self.debugButton setTitle:@"Debug"];
         [self.status setStringValue:@"Status:"];
+        self.debugInfo = nil;
     }
 }
 

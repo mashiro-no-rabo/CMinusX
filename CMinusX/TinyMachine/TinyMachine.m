@@ -8,7 +8,9 @@
 
 #import "TinyMachine.h"
 
-@interface TinyMachine()
+@interface TinyMachine() {
+    long long regs[REGS_SIZE];
+}
 
 @end
 
@@ -188,6 +190,10 @@
 
 - (TMInst *)thisInst {
     return [self.instMem objectAtIndex:regs[PC_REG]];
+}
+
+- (long long)regContent:(int)index {
+    return regs[index];
 }
 
 @end

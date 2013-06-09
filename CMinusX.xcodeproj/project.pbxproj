@@ -17,6 +17,9 @@
 		4F833F6C17627659000BFEA6 /* TinyMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F833F6717627659000BFEA6 /* TinyMachine.m */; };
 		4F833F6D17627659000BFEA6 /* TMInst.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F833F6917627659000BFEA6 /* TMInst.m */; };
 		4F833F6E17627659000BFEA6 /* TMStepResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F833F6B17627659000BFEA6 /* TMStepResult.m */; };
+		4FDD1D6617649C1D00B56F4D /* lexer.rl in Resources */ = {isa = PBXBuildFile; fileRef = 4FDD1D6517649C1D00B56F4D /* lexer.rl */; };
+		4FDD1D6D17649FA700B56F4D /* DebugInfoWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDD1D6B17649FA700B56F4D /* DebugInfoWindowController.m */; };
+		4FDD1D6E17649FA700B56F4D /* DebugInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FDD1D6C17649FA700B56F4D /* DebugInfo.xib */; };
 		B2B8A394C7DC4132954132B1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF87A7103AA48178E9604FA /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +44,10 @@
 		4F833F6917627659000BFEA6 /* TMInst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMInst.m; path = TinyMachine/TMInst.m; sourceTree = "<group>"; };
 		4F833F6A17627659000BFEA6 /* TMStepResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMStepResult.h; path = TinyMachine/TMStepResult.h; sourceTree = "<group>"; };
 		4F833F6B17627659000BFEA6 /* TMStepResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMStepResult.m; path = TinyMachine/TMStepResult.m; sourceTree = "<group>"; };
+		4FDD1D6517649C1D00B56F4D /* lexer.rl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lexer.rl; sourceTree = "<group>"; };
+		4FDD1D6A17649FA700B56F4D /* DebugInfoWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugInfoWindowController.h; path = DebugInfo/DebugInfoWindowController.h; sourceTree = "<group>"; };
+		4FDD1D6B17649FA700B56F4D /* DebugInfoWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DebugInfoWindowController.m; path = DebugInfo/DebugInfoWindowController.m; sourceTree = "<group>"; };
+		4FDD1D6C17649FA700B56F4D /* DebugInfo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DebugInfo.xib; path = DebugInfo/DebugInfo.xib; sourceTree = "<group>"; };
 		7FF87A7103AA48178E9604FA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB7B252BAA74156B83B13D5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -101,6 +108,7 @@
 			children = (
 				4FDD1D6417645CBA00B56F4D /* C- Compiler */,
 				4F833F641762763D000BFEA6 /* Tiny Machine */,
+				4FDD1D6917649F0F00B56F4D /* DebugInfo */,
 				4F833F5617627300000BFEA6 /* CMXDocument.h */,
 				4F833F5717627300000BFEA6 /* CMXDocument.m */,
 				4F833F5917627300000BFEA6 /* CMXDocument.xib */,
@@ -138,8 +146,19 @@
 		4FDD1D6417645CBA00B56F4D /* C- Compiler */ = {
 			isa = PBXGroup;
 			children = (
+				4FDD1D6517649C1D00B56F4D /* lexer.rl */,
 			);
 			name = "C- Compiler";
+			sourceTree = "<group>";
+		};
+		4FDD1D6917649F0F00B56F4D /* DebugInfo */ = {
+			isa = PBXGroup;
+			children = (
+				4FDD1D6A17649FA700B56F4D /* DebugInfoWindowController.h */,
+				4FDD1D6B17649FA700B56F4D /* DebugInfoWindowController.m */,
+				4FDD1D6C17649FA700B56F4D /* DebugInfo.xib */,
+			);
+			name = DebugInfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +219,8 @@
 				4F833F5517627300000BFEA6 /* Credits.rtf in Resources */,
 				4F833F5B17627300000BFEA6 /* CMXDocument.xib in Resources */,
 				4F833F5E17627300000BFEA6 /* MainMenu.xib in Resources */,
+				4FDD1D6617649C1D00B56F4D /* lexer.rl in Resources */,
+				4FDD1D6E17649FA700B56F4D /* DebugInfo.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +267,7 @@
 				4F833F6C17627659000BFEA6 /* TinyMachine.m in Sources */,
 				4F833F6D17627659000BFEA6 /* TMInst.m in Sources */,
 				4F833F6E17627659000BFEA6 /* TMStepResult.m in Sources */,
+				4FDD1D6D17649FA700B56F4D /* DebugInfoWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
