@@ -8,7 +8,7 @@
 
 #import "DebugInfoWindowController.h"
 
-@interface DebugInfoWindowController () <NSTextFieldDelegate>
+@interface DebugInfoWindowController ()
 
 @end
 
@@ -17,16 +17,11 @@
 - (id)init {
     self = [super initWithWindowNibName:@"DebugInfo"];
     
-    if (self) {
-        [self.dataMemQuery setDelegate:self];
-    }
-    
     return self;
 }
 
-- (BOOL)control:(NSControl *)control textShouldBeginEditing:(NSText *)fieldEditor {
-    self.dataMemResult.stringValue = [NSString stringWithFormat:@"%@", [self.dataMem objectAtIndex:[self.dataMemQuery.stringValue intValue]]];
-    return YES;
+- (IBAction)showDataMem:(id)sender {
+    self.dataMemResult.stringValue = [NSString stringWithFormat:@"%lld", [[self.dataMem objectForKey:[NSNumber numberWithLongLong:[self.dataMemQuery.stringValue longLongValue]]] longLongValue]];
 }
 
 @end

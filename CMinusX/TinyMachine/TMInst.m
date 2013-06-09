@@ -89,16 +89,17 @@
         self.opCode = opJNE;
     }
     
-    NSArray *argsPart = [[inst substringFromIndex:[instCode length]] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@", ()"]];
-    self.arg_R = [argsPart[1] longLongValue];
+    NSMutableArray *argsPart = [[[inst substringFromIndex:[instCode length]] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@", ()"]] mutableCopy];
+    [argsPart removeObject:@""];
+    self.arg_R = [argsPart[0] longLongValue];
     
     if (self.opClass == opclLRR) {
-        self.arg_S = [argsPart[2] longLongValue];
-        self.arg_T = [argsPart[3] longLongValue];
+        self.arg_S = [argsPart[1] longLongValue];
+        self.arg_T = [argsPart[2] longLongValue];
     }
     else {
-        self.arg_S = [argsPart[3] longLongValue];
-        self.arg_T = [argsPart[2] longLongValue];
+        self.arg_S = [argsPart[2] longLongValue];
+        self.arg_T = [argsPart[1] longLongValue];
     }
     
     return self;

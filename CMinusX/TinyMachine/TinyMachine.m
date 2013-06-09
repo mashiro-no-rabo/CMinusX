@@ -18,7 +18,7 @@
 
 - (void)clean {
     self.output = [NSMutableArray new];
-    self.dataMem = [NSMutableArray new];
+    self.dataMem = [NSMutableDictionary new];
     for (int i=0; i<REGS_SIZE; i++) {
         regs[i] = 0;
     }
@@ -96,10 +96,15 @@
         regs[r] = regs[s] / regs[t];
     }
     else if (thisInst.opCode == opLD) {
-        regs[r] = [(NSNumber*)[self.dataMem objectAtIndex:a] longLongValue];
+        if ([self.dataMem objectForKey:[NSNumber numberWithLongLong:a]]) {
+            regs[r] = [[self.dataMem objectForKey:[NSNumber numberWithLongLong:a]] longLongValue];
+        }
+        else {
+            regs[r] = 0;
+        }
     }
     else if (thisInst.opCode == opST) {
-        [self.dataMem replaceObjectAtIndex:a withObject:[NSNumber numberWithLongLong:regs[r]]];
+        [self.dataMem setObject:[NSNumber numberWithLongLong:regs[r]] forKey:[NSNumber numberWithLongLong:a]];
     }
     else if (thisInst.opCode == opLDA) {
         regs[r] = a;

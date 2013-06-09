@@ -129,6 +129,7 @@
         if (self.nextLine > 0 && self.nextLine <= [self.tm lineCount]) {
             TMStepResult *result;
             while (self.nextLine > 0 && [self.tm thisInst].lineNo == self.nextLine) {
+                self.debugInfo.inst.stringValue = [self.tm thisInst].rawInst;
                 result = [self.tm step];
                 self.status.stringValue = [NSString stringWithFormat:@"[%d] Debugging: %@", self.nextLine, result];
                 if (result.type == srHALT) {

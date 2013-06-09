@@ -10,6 +10,8 @@
 
 @interface DebugInfoWindowController : NSWindowController
 
+@property (weak) IBOutlet NSTextField *inst;
+
 @property (weak) IBOutlet NSTextField *reg0;
 @property (weak) IBOutlet NSTextField *reg1;
 @property (weak) IBOutlet NSTextField *reg2;
@@ -23,6 +25,6 @@
 @property (weak) IBOutlet NSTextField *dataMemQuery;
 @property (weak) IBOutlet NSTextField *dataMemResult;
 
-@property (strong, nonatomic) NSArray *dataMem;
+@property (strong, nonatomic) NSDictionary *dataMem;
 
 @end

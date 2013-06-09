@@ -16,7 +16,7 @@
 @interface TinyMachine : NSObject 
 
 @property (strong, nonatomic) NSMutableArray *instMem;
-@property (strong, nonatomic) NSMutableArray *dataMem;
+@property (strong, nonatomic) NSMutableDictionary *dataMem;
 @property (strong, nonatomic) NSArray *input;
 @property (strong, nonatomic) NSMutableArray *output;
 
