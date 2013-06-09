@@ -20,8 +20,13 @@
 @property (weak) IBOutlet NSPopUpButton *mode;
 @property (weak) IBOutlet NSTextField *input;
 @property (weak) IBOutlet NSTextField *output;
+@property (weak) IBOutlet NSButton *runButton;
+@property (weak) IBOutlet NSButton *debugButton;
+@property (weak) IBOutlet NSTextField *status;
 
 @property (strong, nonatomic) TinyMachine *tm;
+@property int nextLine;
+@property BOOL debugging;
 
 @property (strong, nonatomic) NSMutableDictionary *savedData;
 
@@ -35,6 +40,7 @@
     if (self) {
         self.tm = [TinyMachine new];
         self.savedData = [NSMutableDictionary new];
+        self.debugging = NO;
     }
     return self;
 }
@@ -105,9 +111,61 @@
 
 - (IBAction)run:(id)sender {
     self.tm.input = [[self.input stringValue] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@", "]];
-    [self.tm fillInstMemWithString:self.editor.string];
-    [self.tm run];
-    [self.output setStringValue:[self.tm.output componentsJoinedByString:@", "]];
+    if (!self.debugging) {
+        [self.tm fillInstMemWithString:self.editor.string];
+        TMStepResult *result = [self.tm run];
+        if (result.type == srHALT) {
+            [self.output setStringValue:[self.tm.output componentsJoinedByString:@", "]];
+        }
+        else {
+            [self.output setStringValue:@"Error"];
+        }
+        [self.status setStringValue:[NSString stringWithFormat:@"Status: %@", result]];
+    }
+    else {
+        if (self.nextLine > 0 && self.nextLine <= [self.tm lineCount]) {
+            TMStepResult *result;
+            while (self.nextLine > 0 && [self.tm thisInst].lineNo == self.nextLine) {
+                result = [self.tm step];
+                self.status.stringValue = [NSString stringWithFormat:@"[%d] Debugging: %@", self.nextLine, result];
+                if (result.type == srHALT) {
+                    break;
+                }
+            }
+            if (result.type != srHALT) {
+                self.nextLine = [self.tm thisInst].lineNo;
+                [self.output setStringValue:[self.tm.output componentsJoinedByString:@", "]];
+            }
+            else {
+                self.nextLine = 0;
+                [self.status setStringValue:@"Debug done."];
+            }
+        }
+        else {
+            [self.tm clean];
+            self.nextLine = 1;
+            self.output.stringValue = @"";
+            self.status.stringValue = @"[0] Debugging:";
+        }
+    }
+}
+
+- (IBAction)toggleDebug:(id)sender {
+    if (!self.debugging) {
+        self.debugging = YES;
+        self.nextLine = 1;
+        [self.tm fillInstMemWithString:self.editor.string];
+        [self.runButton setTitle:@"Step"];
+        [self.debugButton setTitle:@"Quit"];
+        self.output.stringValue = @"";
+        self.status.stringValue = @"[0] Debugging:";
+    }
+    else {
+        self.debugging = NO;
+        [self.runButton setTitle:@"Run"];
+        [self.debugButton setTitle:@"Debug"];
+        [self.status setStringValue:@"Status:"];
+    }
 }
 
 #pragma mark - ACEViewDelegate

@@ -22,9 +22,13 @@
 @property (strong, nonatomic) NSArray *input;
 @property (strong, nonatomic) NSMutableArray *output;
 
+@property long long lineCount;
+
 - (TMStepResult *)run;
 - (TMStepResult *)step;
-- (TMStepResult *)stepLine;
+
+- (TMInst *)thisInst;
+- (TMInst *)nextInst;
 
 - (void)clean;
 - (void)fillInstMemWithString:(NSString *)prog;

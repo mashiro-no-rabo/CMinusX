@@ -10,7 +10,11 @@
 
 @implementation TMInst
 
-- (id)initWithString:(NSString *)inst {
+- (id)initWithString:(NSString *)inst ofLineNo:(NSUInteger)lineNo {
+    
+    self.rawInst = inst;
+    self.lineNo = lineNo;
+    
     NSString *instCode = [inst componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]][0];
     
     /* LRR Inst */

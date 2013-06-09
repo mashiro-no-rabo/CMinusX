@@ -99,6 +99,7 @@
 		4F833F4A17627300000BFEA6 /* CMinusX */ = {
 			isa = PBXGroup;
 			children = (
+				4FDD1D6417645CBA00B56F4D /* C- Compiler */,
 				4F833F641762763D000BFEA6 /* Tiny Machine */,
 				4F833F5617627300000BFEA6 /* CMXDocument.h */,
 				4F833F5717627300000BFEA6 /* CMXDocument.m */,
@@ -132,6 +133,13 @@
 				4F833F6B17627659000BFEA6 /* TMStepResult.m */,
 			);
 			name = "Tiny Machine";
+			sourceTree = "<group>";
+		};
+		4FDD1D6417645CBA00B56F4D /* C- Compiler */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "C- Compiler";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

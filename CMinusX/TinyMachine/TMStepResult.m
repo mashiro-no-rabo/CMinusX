@@ -22,4 +22,16 @@
     return result;
 }
 
+- (NSString *)description {
+    if (self.type == srOKAY) {
+        return @"OKAY";
+    }
+    else if (self.type == srHALT) {
+        return @"DONE";
+    }
+    else {
+        return self.message;
+    }
+}
+
 @end

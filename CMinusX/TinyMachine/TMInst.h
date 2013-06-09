@@ -48,6 +48,6 @@ typedef enum {
 @property long long arg_S;
 @property long long arg_T; // opcode R, T(S)
 
-- (id)initWithString:(NSString *)inst;
+- (id)initWithString:(NSString *)inst ofLineNo:(NSUInteger)lineNo;
 
 @end
