@@ -145,7 +145,7 @@
             [self.tm clean];
             self.nextLine = 1;
             self.output.stringValue = @"";
-            self.status.stringValue = @"[0] Debugging:";
+            self.status.stringValue = @"Debugging: Started";
         }
     }
 }
@@ -158,7 +158,7 @@
         [self.runButton setTitle:@"Step"];
         [self.debugButton setTitle:@"Quit"];
         self.output.stringValue = @"";
-        self.status.stringValue = @"[0] Debugging:";
+        self.status.stringValue = @"Debugging: Started";
     }
     else {
         self.debugging = NO;
