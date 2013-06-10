@@ -112,7 +112,6 @@
 				4F833F5617627300000BFEA6 /* CMXDocument.h */,
 				4F833F5717627300000BFEA6 /* CMXDocument.m */,
 				4F833F5917627300000BFEA6 /* CMXDocument.xib */,
-				4F833F5C17627300000BFEA6 /* MainMenu.xib */,
 				4F833F4B17627300000BFEA6 /* Supporting Files */,
 			);
 			path = CMinusX;
@@ -121,6 +120,7 @@
 		4F833F4B17627300000BFEA6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4F833F5C17627300000BFEA6 /* MainMenu.xib */,
 				4F833F4C17627300000BFEA6 /* CMinusX-Info.plist */,
 				4F833F4D17627300000BFEA6 /* InfoPlist.strings */,
 				4F833F5017627300000BFEA6 /* main.m */,
