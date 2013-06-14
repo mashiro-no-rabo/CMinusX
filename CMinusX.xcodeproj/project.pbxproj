@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F303008176AB3A3007788FA /* SymbolTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F303007176AB3A3007788FA /* SymbolTable.m */; };
+		4F303010176ABD4A007788FA /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F30300F176ABD4A007788FA /* SenTestingKit.framework */; };
+		4F303011176ABD4A007788FA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F833F4417627300000BFEA6 /* Cocoa.framework */; };
+		4F303017176ABD4B007788FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F303015176ABD4B007788FA /* InfoPlist.strings */; };
+		4F30301A176ABD4B007788FA /* CMinusXTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F303019176ABD4B007788FA /* CMinusXTest.m */; };
+		4F303022176ABEC2007788FA /* SymbolTableTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F303021176ABEC2007788FA /* SymbolTableTest.m */; };
 		4F833F4517627300000BFEA6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F833F4417627300000BFEA6 /* Cocoa.framework */; };
 		4F833F4F17627300000BFEA6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F833F4D17627300000BFEA6 /* InfoPlist.strings */; };
 		4F833F5117627300000BFEA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F833F5017627300000BFEA6 /* main.m */; };
@@ -23,7 +29,28 @@
 		B2B8A394C7DC4132954132B1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF87A7103AA48178E9604FA /* libPods.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4F303023176AC1AF007788FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4F833F3917627300000BFEA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F833F4017627300000BFEA6;
+			remoteInfo = CMinusX;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		4F303006176AB3A3007788FA /* SymbolTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SymbolTable.h; path = CMinusCompiler/SymbolTable.h; sourceTree = "<group>"; };
+		4F303007176AB3A3007788FA /* SymbolTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SymbolTable.m; path = CMinusCompiler/SymbolTable.m; sourceTree = "<group>"; };
+		4F30300E176ABD4A007788FA /* CMinusXTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CMinusXTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F30300F176ABD4A007788FA /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		4F303014176ABD4A007788FA /* CMinusXTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CMinusXTest-Info.plist"; sourceTree = "<group>"; };
+		4F303016176ABD4B007788FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4F303018176ABD4B007788FA /* CMinusXTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMinusXTest.h; sourceTree = "<group>"; };
+		4F303019176ABD4B007788FA /* CMinusXTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMinusXTest.m; sourceTree = "<group>"; };
+		4F30301B176ABD4B007788FA /* CMinusXTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CMinusXTest-Prefix.pch"; sourceTree = "<group>"; };
+		4F303020176ABEC2007788FA /* SymbolTableTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymbolTableTest.h; sourceTree = "<group>"; };
+		4F303021176ABEC2007788FA /* SymbolTableTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymbolTableTest.m; sourceTree = "<group>"; };
 		4F833F4117627300000BFEA6 /* CMinusX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CMinusX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F833F4417627300000BFEA6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4F833F4717627300000BFEA6 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -53,6 +80,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4F30300A176ABD4A007788FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F303010176ABD4A007788FA /* SenTestingKit.framework in Frameworks */,
+				4F303011176ABD4A007788FA /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4F833F3E17627300000BFEA6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -65,10 +101,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F303012176ABD4A007788FA /* CMinusXTest */ = {
+			isa = PBXGroup;
+			children = (
+				4F30301F176ABEA8007788FA /* C- Compiler Test */,
+				4F303018176ABD4B007788FA /* CMinusXTest.h */,
+				4F303019176ABD4B007788FA /* CMinusXTest.m */,
+				4F303013176ABD4A007788FA /* Supporting Files */,
+			);
+			path = CMinusXTest;
+			sourceTree = "<group>";
+		};
+		4F303013176ABD4A007788FA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4F303014176ABD4A007788FA /* CMinusXTest-Info.plist */,
+				4F303015176ABD4B007788FA /* InfoPlist.strings */,
+				4F30301B176ABD4B007788FA /* CMinusXTest-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4F30301F176ABEA8007788FA /* C- Compiler Test */ = {
+			isa = PBXGroup;
+			children = (
+				4F303020176ABEC2007788FA /* SymbolTableTest.h */,
+				4F303021176ABEC2007788FA /* SymbolTableTest.m */,
+			);
+			name = "C- Compiler Test";
+			sourceTree = "<group>";
+		};
 		4F833F3817627300000BFEA6 = {
 			isa = PBXGroup;
 			children = (
 				4F833F4A17627300000BFEA6 /* CMinusX */,
+				4F303012176ABD4A007788FA /* CMinusXTest */,
 				4F833F4317627300000BFEA6 /* Frameworks */,
 				4F833F4217627300000BFEA6 /* Products */,
 				ABB7B252BAA74156B83B13D5 /* Pods.xcconfig */,
@@ -79,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				4F833F4117627300000BFEA6 /* CMinusX.app */,
+				4F30300E176ABD4A007788FA /* CMinusXTest.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				4F833F4417627300000BFEA6 /* Cocoa.framework */,
+				4F30300F176ABD4A007788FA /* SenTestingKit.framework */,
 				4F833F4617627300000BFEA6 /* Other Frameworks */,
 				7FF87A7103AA48178E9604FA /* libPods.a */,
 			);
@@ -147,6 +216,8 @@
 			isa = PBXGroup;
 			children = (
 				4FDD1D6517649C1D00B56F4D /* lexer.rl */,
+				4F303006176AB3A3007788FA /* SymbolTable.h */,
+				4F303007176AB3A3007788FA /* SymbolTable.m */,
 			);
 			name = "C- Compiler";
 			sourceTree = "<group>";
@@ -164,6 +235,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4F30300D176ABD4A007788FA /* CMinusXTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F30301C176ABD4B007788FA /* Build configuration list for PBXNativeTarget "CMinusXTest" */;
+			buildPhases = (
+				4F303009176ABD4A007788FA /* Sources */,
+				4F30300A176ABD4A007788FA /* Frameworks */,
+				4F30300B176ABD4A007788FA /* Resources */,
+				4F30300C176ABD4A007788FA /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4F303024176AC1AF007788FA /* PBXTargetDependency */,
+			);
+			name = CMinusXTest;
+			productName = CMinusXTest;
+			productReference = 4F30300E176ABD4A007788FA /* CMinusXTest.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		4F833F4017627300000BFEA6 /* CMinusX */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F833F6117627300000BFEA6 /* Build configuration list for PBXNativeTarget "CMinusX" */;
@@ -206,11 +296,20 @@
 			projectRoot = "";
 			targets = (
 				4F833F4017627300000BFEA6 /* CMinusX */,
+				4F30300D176ABD4A007788FA /* CMinusXTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4F30300B176ABD4A007788FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F303017176ABD4B007788FA /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4F833F3F17627300000BFEA6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -227,6 +326,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4F30300C176ABD4A007788FA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
 		A47DE158F6BD45B2B87F215E /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -258,6 +370,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4F303009176ABD4A007788FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F30301A176ABD4B007788FA /* CMinusXTest.m in Sources */,
+				4F303022176ABEC2007788FA /* SymbolTableTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4F833F3D17627300000BFEA6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -268,12 +389,29 @@
 				4F833F6D17627659000BFEA6 /* TMInst.m in Sources */,
 				4F833F6E17627659000BFEA6 /* TMStepResult.m in Sources */,
 				4FDD1D6D17649FA700B56F4D /* DebugInfoWindowController.m in Sources */,
+				4F303008176AB3A3007788FA /* SymbolTable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		4F303024176AC1AF007788FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F833F4017627300000BFEA6 /* CMinusX */;
+			targetProxy = 4F303023176AC1AF007788FA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		4F303015176ABD4B007788FA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F303016176ABD4B007788FA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		4F833F4D17627300000BFEA6 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -309,6 +447,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4F30301D176ABD4B007788FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CMinusX.app/Contents/MacOS/CMinusX";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CMinusXTest/CMinusXTest-Prefix.pch";
+				INFOPLIST_FILE = "CMinusXTest/CMinusXTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		4F30301E176ABD4B007788FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CMinusX.app/Contents/MacOS/CMinusX";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CMinusXTest/CMinusXTest-Prefix.pch";
+				INFOPLIST_FILE = "CMinusXTest/CMinusXTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		4F833F5F17627300000BFEA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -397,6 +565,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4F30301C176ABD4B007788FA /* Build configuration list for PBXNativeTarget "CMinusXTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F30301D176ABD4B007788FA /* Debug */,
+				4F30301E176ABD4B007788FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		4F833F3C17627300000BFEA6 /* Build configuration list for PBXProject "CMinusX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
