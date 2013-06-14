@@ -37,7 +37,12 @@
 }
 
 - (id)lookupSymbolName:(NSString *)name {
-    return [[self.table objectForKey:name] objectAtIndex:0];
+    if ([[self.table objectForKey:name] count] > 0) {
+        return [[self.table objectForKey:name] objectAtIndex:0];
+    }
+    else {
+        return nil;
+    }
 }
 
 - (void)deleteSymbolName:(NSString *)name {

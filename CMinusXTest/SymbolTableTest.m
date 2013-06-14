@@ -33,4 +33,11 @@ SymbolTable *tab;
     STAssertEqualObjects(@{@"type": @"int"}, [tab lookupSymbolName:@"test"], @"Insert Fail");
 }
 
+- (void)testDelete {
+    [tab insertSymbolName:@"test" withInfo:@{@"type": @"int"}];
+    STAssertEqualObjects(@{@"type": @"int"}, [tab lookupSymbolName:@"test"], @"Insert Fail");
+    [tab deleteSymbolName:@"test"];
+    STAssertNil([tab lookupSymbolName:@"test"], @"Empty lookup fail");
+}
+
 @end
