@@ -31,11 +31,17 @@ SymbolTable *tab;
 - (void)testInsert {
     [tab insertSymbolName:@"test" withInfo:@{@"type": @"int"}];
     STAssertEqualObjects(@{@"type": @"int"}, [tab lookupSymbolName:@"test"], @"Insert Fail");
+    [tab insertSymbolName:@"test" withInfo:@{@"type" : @"array"}];
+    STAssertEqualObjects(@{@"type": @"array"}, [tab lookupSymbolName:@"test"], @"Insert Over Scope Fail");
 }
 
 - (void)testDelete {
     [tab insertSymbolName:@"test" withInfo:@{@"type": @"int"}];
     STAssertEqualObjects(@{@"type": @"int"}, [tab lookupSymbolName:@"test"], @"Insert Fail");
+    [tab insertSymbolName:@"test" withInfo:@{@"type" : @"array"}];
+    STAssertEqualObjects(@{@"type": @"array"}, [tab lookupSymbolName:@"test"], @"Insert Over Scope Fail");
+    [tab deleteSymbolName:@"test"];
+    STAssertEqualObjects(@{@"type": @"int"}, [tab lookupSymbolName:@"test"], @"Delete outter scope Fail");
     [tab deleteSymbolName:@"test"];
     STAssertNil([tab lookupSymbolName:@"test"], @"Empty lookup fail");
 }
