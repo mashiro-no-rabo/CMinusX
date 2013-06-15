@@ -27,8 +27,8 @@ typedef enum {
  Function:
     args:
     return:
-    id:
     statements:
+    id:
  */
 
 @end

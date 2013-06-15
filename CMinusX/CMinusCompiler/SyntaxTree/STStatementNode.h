@@ -13,8 +13,8 @@ typedef enum {
     STStmtIf = 0,
     STStmtWhile,
     STStmtAssign,
-    STStmtCalc,
-    STStmtRel,
+    STStmtOpCalc,
+    STStmtOpRel,
     STStmtCall
 } STStmtType;
 

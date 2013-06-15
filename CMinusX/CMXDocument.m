@@ -65,6 +65,8 @@
     [self.editor setMode:ACEModeCPP];
     [self.editor setTheme:ACEThemeTomorrowNightEighties];
     [self.editor setShowPrintMargin:NO];
+//    [self.editor setHighlightActiveLine:NO];
+//    [self.editor setHighlightGutterLine:NO];
     [self.editor setShowInvisibles:YES];
     
     if ([self.savedData objectForKey:@"editorContent"]) {

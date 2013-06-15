@@ -8,27 +8,10 @@
 
 #import "CMScanner.h"
 
-%%{
-    
-    machine CMinusScanner;
-    
-    main := |*
-    digit+ => {
-    };
-    
-    alpha+ => {
-    };
-    *|
-    
-}%%
-
 @implementation CMScanner
 
 - (NSArray *)scan:(NSString *)input {
-    NSMutableArray *result = [NSMutableArray new];
-    p = input;
-    
-}
+    return nil;
+};
 
 @end
-
