@@ -7,16 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "STBaseNode.h"
 
 typedef enum {
     STDeclVar = 0,
     STDeclFunc
 } STDeclType;
 
-@interface STDeclarationNode : NSObject
+@interface STDeclarationNode : STBaseNode
 
 @property STDeclType type;
-@property (strong, nonatomic) NSMutableDictionary *info;
 
 /*
  Variable:

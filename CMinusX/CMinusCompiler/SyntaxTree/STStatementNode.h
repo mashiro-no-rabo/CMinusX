@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "STBaseNode.h"
 
 typedef enum {
     STStmtIf = 0,
@@ -17,7 +18,7 @@ typedef enum {
     STStmtCall
 } STStmtType;
 
-@interface STStatementNode : NSObject
+@interface STStatementNode : STBaseNode
 
 @property STStmtType type;
 

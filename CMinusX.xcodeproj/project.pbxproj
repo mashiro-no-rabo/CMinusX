@@ -16,6 +16,7 @@
 		4F303028176B738B007788FA /* STProgramNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F303027176B738B007788FA /* STProgramNode.m */; };
 		4F30302B176B79E6007788FA /* STDeclarationNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F30302A176B79E5007788FA /* STDeclarationNode.m */; };
 		4F30302E176B824D007788FA /* STStatementNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F30302D176B824D007788FA /* STStatementNode.m */; };
+		4F776330176C7C1E0002CB3B /* STBaseNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F77632F176C7C1E0002CB3B /* STBaseNode.m */; };
 		4F833F4517627300000BFEA6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F833F4417627300000BFEA6 /* Cocoa.framework */; };
 		4F833F4F17627300000BFEA6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F833F4D17627300000BFEA6 /* InfoPlist.strings */; };
 		4F833F5117627300000BFEA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F833F5017627300000BFEA6 /* main.m */; };
@@ -60,6 +61,8 @@
 		4F30302A176B79E5007788FA /* STDeclarationNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STDeclarationNode.m; path = CMinusCompiler/SyntaxTree/STDeclarationNode.m; sourceTree = "<group>"; };
 		4F30302C176B824D007788FA /* STStatementNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STStatementNode.h; path = CMinusCompiler/SyntaxTree/STStatementNode.h; sourceTree = "<group>"; };
 		4F30302D176B824D007788FA /* STStatementNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STStatementNode.m; path = CMinusCompiler/SyntaxTree/STStatementNode.m; sourceTree = "<group>"; };
+		4F77632E176C7C1E0002CB3B /* STBaseNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STBaseNode.h; path = CMinusCompiler/SyntaxTree/STBaseNode.h; sourceTree = "<group>"; };
+		4F77632F176C7C1E0002CB3B /* STBaseNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STBaseNode.m; path = CMinusCompiler/SyntaxTree/STBaseNode.m; sourceTree = "<group>"; };
 		4F833F4117627300000BFEA6 /* CMinusX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CMinusX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F833F4417627300000BFEA6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4F833F4717627300000BFEA6 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -149,6 +152,8 @@
 				4F30302A176B79E5007788FA /* STDeclarationNode.m */,
 				4F30302C176B824D007788FA /* STStatementNode.h */,
 				4F30302D176B824D007788FA /* STStatementNode.m */,
+				4F77632E176C7C1E0002CB3B /* STBaseNode.h */,
+				4F77632F176C7C1E0002CB3B /* STBaseNode.m */,
 			);
 			name = "Syntax Tree";
 			sourceTree = "<group>";
@@ -416,6 +421,7 @@
 				4F303028176B738B007788FA /* STProgramNode.m in Sources */,
 				4F30302B176B79E6007788FA /* STDeclarationNode.m in Sources */,
 				4F30302E176B824D007788FA /* STStatementNode.m in Sources */,
+				4F776330176C7C1E0002CB3B /* STBaseNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

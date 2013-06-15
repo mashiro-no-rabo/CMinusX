@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "STBaseNode.h"
 
-@interface STProgramNode : NSObject
+@interface STProgramNode : STBaseNode
 
 @property (strong, nonatomic) NSMutableArray *decls;
 
