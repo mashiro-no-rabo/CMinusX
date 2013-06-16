@@ -19,6 +19,10 @@
 		4F776330176C7C1E0002CB3B /* STBaseNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F77632F176C7C1E0002CB3B /* STBaseNode.m */; };
 		4F776336176CE7720002CB3B /* CMParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F776335176CE7720002CB3B /* CMParser.m */; };
 		4F776339176CE7F90002CB3B /* CMScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F776338176CE7F90002CB3B /* CMScanner.m */; };
+		4F776356176DB2EF0002CB3B /* CMScannerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F776355176DB2EF0002CB3B /* CMScannerTest.m */; };
+		4F776358176DB54E0002CB3B /* test.cm in Resources */ = {isa = PBXBuildFile; fileRef = 4F776357176DB54E0002CB3B /* test.cm */; };
+		4F77635B176DBBE20002CB3B /* CMToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F77635A176DBBE10002CB3B /* CMToken.m */; };
+		4F77635D176DBC890002CB3B /* objclexer.rl in Resources */ = {isa = PBXBuildFile; fileRef = 4F77635C176DBC890002CB3B /* objclexer.rl */; };
 		4F833F4517627300000BFEA6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F833F4417627300000BFEA6 /* Cocoa.framework */; };
 		4F833F4F17627300000BFEA6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F833F4D17627300000BFEA6 /* InfoPlist.strings */; };
 		4F833F5117627300000BFEA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F833F5017627300000BFEA6 /* main.m */; };
@@ -29,7 +33,6 @@
 		4F833F6C17627659000BFEA6 /* TinyMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F833F6717627659000BFEA6 /* TinyMachine.m */; };
 		4F833F6D17627659000BFEA6 /* TMInst.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F833F6917627659000BFEA6 /* TMInst.m */; };
 		4F833F6E17627659000BFEA6 /* TMStepResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F833F6B17627659000BFEA6 /* TMStepResult.m */; };
-		4FDD1D6617649C1D00B56F4D /* lexer.rl in Resources */ = {isa = PBXBuildFile; fileRef = 4FDD1D6517649C1D00B56F4D /* lexer.rl */; };
 		4FDD1D6D17649FA700B56F4D /* DebugInfoWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDD1D6B17649FA700B56F4D /* DebugInfoWindowController.m */; };
 		4FDD1D6E17649FA700B56F4D /* DebugInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FDD1D6C17649FA700B56F4D /* DebugInfo.xib */; };
 		B2B8A394C7DC4132954132B1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF87A7103AA48178E9604FA /* libPods.a */; };
@@ -69,6 +72,12 @@
 		4F776335176CE7720002CB3B /* CMParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMParser.m; path = CMinusCompiler/CMParser.m; sourceTree = "<group>"; };
 		4F776337176CE7F90002CB3B /* CMScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMScanner.h; path = CMinusCompiler/CMScanner.h; sourceTree = "<group>"; };
 		4F776338176CE7F90002CB3B /* CMScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMScanner.m; path = CMinusCompiler/CMScanner.m; sourceTree = "<group>"; };
+		4F776354176DB2EF0002CB3B /* CMScannerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMScannerTest.h; sourceTree = "<group>"; };
+		4F776355176DB2EF0002CB3B /* CMScannerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMScannerTest.m; sourceTree = "<group>"; };
+		4F776357176DB54E0002CB3B /* test.cm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.cm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
+		4F776359176DBBE10002CB3B /* CMToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMToken.h; path = CMinusCompiler/CMToken.h; sourceTree = "<group>"; };
+		4F77635A176DBBE10002CB3B /* CMToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMToken.m; path = CMinusCompiler/CMToken.m; sourceTree = "<group>"; };
+		4F77635C176DBC890002CB3B /* objclexer.rl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = objclexer.rl; path = CMinusCompiler/objclexer.rl; sourceTree = "<group>"; };
 		4F833F4117627300000BFEA6 /* CMinusX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CMinusX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F833F4417627300000BFEA6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4F833F4717627300000BFEA6 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -89,7 +98,6 @@
 		4F833F6917627659000BFEA6 /* TMInst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMInst.m; path = TinyMachine/TMInst.m; sourceTree = "<group>"; };
 		4F833F6A17627659000BFEA6 /* TMStepResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMStepResult.h; path = TinyMachine/TMStepResult.h; sourceTree = "<group>"; };
 		4F833F6B17627659000BFEA6 /* TMStepResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMStepResult.m; path = TinyMachine/TMStepResult.m; sourceTree = "<group>"; };
-		4FDD1D6517649C1D00B56F4D /* lexer.rl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lexer.rl; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4FDD1D6A17649FA700B56F4D /* DebugInfoWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugInfoWindowController.h; path = DebugInfo/DebugInfoWindowController.h; sourceTree = "<group>"; };
 		4FDD1D6B17649FA700B56F4D /* DebugInfoWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DebugInfoWindowController.m; path = DebugInfo/DebugInfoWindowController.m; sourceTree = "<group>"; };
 		4FDD1D6C17649FA700B56F4D /* DebugInfo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DebugInfo.xib; path = DebugInfo/DebugInfo.xib; sourceTree = "<group>"; };
@@ -145,6 +153,9 @@
 			children = (
 				4F303020176ABEC2007788FA /* SymbolTableTest.h */,
 				4F303021176ABEC2007788FA /* SymbolTableTest.m */,
+				4F776354176DB2EF0002CB3B /* CMScannerTest.h */,
+				4F776355176DB2EF0002CB3B /* CMScannerTest.m */,
+				4F776357176DB54E0002CB3B /* test.cm */,
 			);
 			name = "C- Compiler Test";
 			sourceTree = "<group>";
@@ -249,13 +260,15 @@
 			isa = PBXGroup;
 			children = (
 				4F303025176B7356007788FA /* Syntax Tree */,
-				4FDD1D6517649C1D00B56F4D /* lexer.rl */,
 				4F303006176AB3A3007788FA /* SymbolTable.h */,
 				4F303007176AB3A3007788FA /* SymbolTable.m */,
 				4F776334176CE7710002CB3B /* CMParser.h */,
 				4F776335176CE7720002CB3B /* CMParser.m */,
+				4F77635C176DBC890002CB3B /* objclexer.rl */,
 				4F776337176CE7F90002CB3B /* CMScanner.h */,
 				4F776338176CE7F90002CB3B /* CMScanner.m */,
+				4F776359176DBBE10002CB3B /* CMToken.h */,
+				4F77635A176DBBE10002CB3B /* CMToken.m */,
 			);
 			name = "C- Compiler";
 			sourceTree = "<group>";
@@ -345,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F303017176ABD4B007788FA /* InfoPlist.strings in Resources */,
+				4F776358176DB54E0002CB3B /* test.cm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,8 +370,8 @@
 				4F833F5517627300000BFEA6 /* Credits.rtf in Resources */,
 				4F833F5B17627300000BFEA6 /* CMXDocument.xib in Resources */,
 				4F833F5E17627300000BFEA6 /* MainMenu.xib in Resources */,
-				4FDD1D6617649C1D00B56F4D /* lexer.rl in Resources */,
 				4FDD1D6E17649FA700B56F4D /* DebugInfo.xib in Resources */,
+				4F77635D176DBC890002CB3B /* objclexer.rl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +428,7 @@
 			files = (
 				4F30301A176ABD4B007788FA /* CMinusXTest.m in Sources */,
 				4F303022176ABEC2007788FA /* SymbolTableTest.m in Sources */,
+				4F776356176DB2EF0002CB3B /* CMScannerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +449,7 @@
 				4F776330176C7C1E0002CB3B /* STBaseNode.m in Sources */,
 				4F776336176CE7720002CB3B /* CMParser.m in Sources */,
 				4F776339176CE7F90002CB3B /* CMScanner.m in Sources */,
+				4F77635B176DBBE20002CB3B /* CMToken.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

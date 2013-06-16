@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CMToken.h"
 
 @interface CMScanner : NSObject
 
-- (NSArray *)scan:(NSString *)input;
++ (NSArray *)scan:(NSString *)input;
 
 @end
