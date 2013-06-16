@@ -127,6 +127,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F296570176DF39200860C7A /* Ragel */ = {
+			isa = PBXGroup;
+			children = (
+				4F77635C176DBC890002CB3B /* objclexer.rl */,
+			);
+			name = Ragel;
+			sourceTree = "<group>";
+		};
+		4F296571176DF3A600860C7A /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				4F296570176DF39200860C7A /* Ragel */,
+				4F776337176CE7F90002CB3B /* CMScanner.h */,
+				4F776338176CE7F90002CB3B /* CMScanner.m */,
+			);
+			name = Scanner;
+			sourceTree = "<group>";
+		};
+		4F296572176DF3BA00860C7A /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				4F303006176AB3A3007788FA /* SymbolTable.h */,
+				4F303007176AB3A3007788FA /* SymbolTable.m */,
+				4F776334176CE7710002CB3B /* CMParser.h */,
+				4F776335176CE7720002CB3B /* CMParser.m */,
+			);
+			name = Parser;
+			sourceTree = "<group>";
+		};
+		4F296573176DF3F200860C7A /* CodeGen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CodeGen;
+			sourceTree = "<group>";
+		};
 		4F303012176ABD4A007788FA /* CMinusXTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,8 +255,8 @@
 		4F833F4A17627300000BFEA6 /* CMinusX */ = {
 			isa = PBXGroup;
 			children = (
-				4FDD1D6417645CBA00B56F4D /* C- Compiler */,
 				4F833F641762763D000BFEA6 /* Tiny Machine */,
+				4FDD1D6417645CBA00B56F4D /* C- Compiler */,
 				4FDD1D6917649F0F00B56F4D /* DebugInfo */,
 				4F833F5617627300000BFEA6 /* CMXDocument.h */,
 				4F833F5717627300000BFEA6 /* CMXDocument.m */,
@@ -259,16 +295,12 @@
 		4FDD1D6417645CBA00B56F4D /* C- Compiler */ = {
 			isa = PBXGroup;
 			children = (
-				4F303025176B7356007788FA /* Syntax Tree */,
-				4F303006176AB3A3007788FA /* SymbolTable.h */,
-				4F303007176AB3A3007788FA /* SymbolTable.m */,
-				4F776334176CE7710002CB3B /* CMParser.h */,
-				4F776335176CE7720002CB3B /* CMParser.m */,
-				4F77635C176DBC890002CB3B /* objclexer.rl */,
-				4F776337176CE7F90002CB3B /* CMScanner.h */,
-				4F776338176CE7F90002CB3B /* CMScanner.m */,
 				4F776359176DBBE10002CB3B /* CMToken.h */,
 				4F77635A176DBBE10002CB3B /* CMToken.m */,
+				4F296571176DF3A600860C7A /* Scanner */,
+				4F303025176B7356007788FA /* Syntax Tree */,
+				4F296572176DF3BA00860C7A /* Parser */,
+				4F296573176DF3F200860C7A /* CodeGen */,
 			);
 			name = "C- Compiler";
 			sourceTree = "<group>";
