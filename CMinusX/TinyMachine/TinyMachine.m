@@ -142,7 +142,7 @@
             regs[PC_REG] = a;
         }
     }
-        
+    
     return [TMStepResult resultOKAY];
 }
 

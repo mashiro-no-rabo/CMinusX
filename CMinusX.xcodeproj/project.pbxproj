@@ -49,6 +49,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F2965741770A26600860C7A /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/CMXDocument.xib; sourceTree = "<group>"; };
+		4F2965751770A26600860C7A /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		4F2965761770A26600860C7A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4F2965771770A26600860C7A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = ja; path = ja.lproj/Credits.rtf; sourceTree = "<group>"; };
+		4F2965781770A26600860C7A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4F303006176AB3A3007788FA /* SymbolTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SymbolTable.h; path = CMinusCompiler/SymbolTable.h; sourceTree = "<group>"; };
 		4F303007176AB3A3007788FA /* SymbolTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SymbolTable.m; path = CMinusCompiler/SymbolTable.m; sourceTree = "<group>"; };
 		4F30300E176ABD4A007788FA /* CMinusXTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CMinusXTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -372,6 +377,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ja,
 			);
 			mainGroup = 4F833F3817627300000BFEA6;
 			productRefGroup = 4F833F4217627300000BFEA6 /* Products */;
@@ -500,6 +506,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4F303016176ABD4B007788FA /* en */,
+				4F2965781770A26600860C7A /* ja */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -508,6 +515,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4F833F4E17627300000BFEA6 /* en */,
+				4F2965761770A26600860C7A /* ja */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -516,6 +524,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4F833F5417627300000BFEA6 /* en */,
+				4F2965771770A26600860C7A /* ja */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -524,6 +533,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4F833F5A17627300000BFEA6 /* en */,
+				4F2965741770A26600860C7A /* ja */,
 			);
 			name = CMXDocument.xib;
 			sourceTree = "<group>";
@@ -532,6 +542,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4F833F5D17627300000BFEA6 /* en */,
+				4F2965751770A26600860C7A /* ja */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
