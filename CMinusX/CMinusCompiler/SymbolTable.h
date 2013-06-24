@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface SymbolTable : NSObject
 
-- (void)insertSymbolName:(NSString *)name withInfo:(id)info;
+- (void)insertSymbolName:(NSString *)name withInfo:(NSDictionary *)info;
 - (id)lookupSymbolName:(NSString *)name;
 - (void)deleteSymbolName:(NSString *)name;
+- (void)pushLevel;
+- (void)popLevel;
 
 @end

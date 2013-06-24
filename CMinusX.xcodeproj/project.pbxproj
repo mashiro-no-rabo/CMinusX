@@ -16,6 +16,7 @@
 		4F303028176B738B007788FA /* STProgramNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F303027176B738B007788FA /* STProgramNode.m */; };
 		4F30302B176B79E6007788FA /* STDeclarationNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F30302A176B79E5007788FA /* STDeclarationNode.m */; };
 		4F30302E176B824D007788FA /* STStatementNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F30302D176B824D007788FA /* STStatementNode.m */; };
+		4F34B99C1778627E00C4421E /* Symbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F34B99B1778627E00C4421E /* Symbol.m */; };
 		4F3C37491771ABFE000A2691 /* Sublime Text 2.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4F3C37481771ABFE000A2691 /* Sublime Text 2.icns */; };
 		4F3C374B1771AE86000A2691 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4F3C374A1771AE86000A2691 /* README.md */; };
 		4F3C374E1771AEB9000A2691 /* fact.cmxprj in Resources */ = {isa = PBXBuildFile; fileRef = 4F3C374D1771AEB9000A2691 /* fact.cmxprj */; };
@@ -74,6 +75,8 @@
 		4F30302A176B79E5007788FA /* STDeclarationNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STDeclarationNode.m; path = CMinusCompiler/SyntaxTree/STDeclarationNode.m; sourceTree = "<group>"; };
 		4F30302C176B824D007788FA /* STStatementNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STStatementNode.h; path = CMinusCompiler/SyntaxTree/STStatementNode.h; sourceTree = "<group>"; };
 		4F30302D176B824D007788FA /* STStatementNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STStatementNode.m; path = CMinusCompiler/SyntaxTree/STStatementNode.m; sourceTree = "<group>"; };
+		4F34B99A1778627E00C4421E /* Symbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Symbol.h; path = CMinusCompiler/Symbol.h; sourceTree = "<group>"; };
+		4F34B99B1778627E00C4421E /* Symbol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Symbol.m; path = CMinusCompiler/Symbol.m; sourceTree = "<group>"; };
 		4F3C37481771ABFE000A2691 /* Sublime Text 2.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "Sublime Text 2.icns"; path = "../Sublime Text 2.icns"; sourceTree = "<group>"; };
 		4F3C374A1771AE86000A2691 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		4F3C374D1771AEB9000A2691 /* fact.cmxprj */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = fact.cmxprj; sourceTree = "<group>"; };
@@ -159,6 +162,8 @@
 		4F296572176DF3BA00860C7A /* Parser */ = {
 			isa = PBXGroup;
 			children = (
+				4F34B99A1778627E00C4421E /* Symbol.h */,
+				4F34B99B1778627E00C4421E /* Symbol.m */,
 				4F303006176AB3A3007788FA /* SymbolTable.h */,
 				4F303007176AB3A3007788FA /* SymbolTable.m */,
 				4F776334176CE7710002CB3B /* CMParser.h */,
@@ -508,6 +513,7 @@
 				4F776336176CE7720002CB3B /* CMParser.m in Sources */,
 				4F776339176CE7F90002CB3B /* CMScanner.m in Sources */,
 				4F77635B176DBBE20002CB3B /* CMToken.m in Sources */,
+				4F34B99C1778627E00C4421E /* Symbol.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

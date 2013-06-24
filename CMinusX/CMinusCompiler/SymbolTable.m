@@ -7,10 +7,12 @@
 //
 
 #import "SymbolTable.h"
+#import "Symbol.h"
 
 @interface SymbolTable()
 
 @property (strong, nonatomic) NSMutableDictionary *table;
+@property int level;
 
 @end
 
@@ -20,19 +22,22 @@
     self = [super init];
     if (self) {
         self.table = [NSMutableDictionary new];
+        self.level = 0;
     }
     return self;
 }
 
-- (void)insertSymbolName:(NSString *)name withInfo:(id)info {
+- (void)insertSymbolName:(NSString *)name withInfo:(NSDictionary *)info{
+    Symbol *sym = [Symbol new];
+    sym.name = name;
+    sym.info = info;
+    sym.level = self.level;
+    
     NSMutableArray *list = [self.table objectForKey:name];
     if (!list) {
         list = [NSMutableArray new];
-        [list addObject:info];
     }
-    else {
-        [list insertObject:info atIndex:0];
-    }
+    [list addObject:sym];
     [self.table setObject:list forKey:name];
 }
 
@@ -47,7 +52,24 @@
 
 - (void)deleteSymbolName:(NSString *)name {
     NSMutableArray *list = [self.table objectForKey:name];
-    [list removeObjectAtIndex:0];
+    for (int i=0; i<[list count]; i++) {
+        Symbol *sym = [list objectAtIndex:i];
+        if (sym.level == self.level) {
+            [list removeObjectAtIndex:i];
+            return;
+        }
+    }
+}
+
+- (void)pushLevel {
+    self.level += 1;
+}
+
+- (void)popLevel {
+    for (NSString *key in self.table) {
+        [self deleteSymbolName:key];
+    }
+    self.level -= 1;
 }
 
 @end
