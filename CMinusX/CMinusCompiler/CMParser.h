@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "STProgramNode.h"
+#import "SymbolTable.h"
 
 @interface CMParser : NSObject
 
-- (STProgramNode *)parse:(NSArray *)tokens;
+@property (strong, nonatomic) SymbolTable *symtab;
+
+- (id)initWithTokens:(NSArray *)tokens;
+- (STProgramNode *)parse;
 
 @end

@@ -15,38 +15,42 @@
 
 #line 17 "CMScanner.m"
 static const char _CMinusScanner_actions[] = {
-	0, 1, 0, 1, 1, 1, 12, 1, 
-	13, 1, 14, 1, 15, 1, 16, 1, 
-	17, 1, 18, 1, 19, 1, 20, 1, 
-	21, 1, 22, 1, 23, 1, 24, 1, 
-	25, 1, 26, 1, 27, 1, 28, 1, 
-	29, 1, 30, 1, 31, 1, 32, 1, 
-	33, 2, 2, 3, 2, 2, 4, 2, 
-	2, 5, 2, 2, 6, 2, 2, 7, 
-	2, 2, 8, 2, 2, 9, 2, 2, 
-	10, 2, 2, 11
+	0, 1, 0, 1, 1, 1, 10, 1, 
+	11, 1, 12, 1, 13, 1, 14, 1, 
+	15, 1, 16, 1, 17, 1, 18, 1, 
+	19, 1, 20, 1, 21, 1, 22, 1, 
+	23, 1, 24, 1, 25, 1, 26, 1, 
+	27, 1, 28, 1, 29, 1, 30, 1, 
+	31, 1, 32, 1, 33, 2, 2, 3, 
+	2, 2, 4, 2, 2, 5, 2, 2, 
+	6, 2, 2, 7, 2, 2, 8, 2, 
+	2, 9
 };
 
 static const char _CMinusScanner_key_offsets[] = {
-	0, 0, 1, 30, 32, 33, 34, 35, 
-	37, 40, 43, 46, 50, 53, 56, 59, 
-	62, 65, 68, 71, 74, 77, 80, 83, 
-	86
+	0, 0, 1, 32, 34, 35, 36, 37, 
+	41, 46, 51, 56, 62, 67, 72, 77, 
+	82, 87, 92, 97, 102, 107, 112, 117, 
+	122
 };
 
 static const char _CMinusScanner_trans_keys[] = {
 	61, 10, 32, 33, 40, 41, 42, 43, 
 	44, 45, 47, 59, 60, 61, 62, 91, 
 	93, 101, 105, 114, 118, 119, 123, 125, 
-	9, 13, 48, 57, 65, 122, 48, 57, 
-	61, 61, 61, 65, 122, 108, 65, 122, 
-	115, 65, 122, 101, 65, 122, 102, 110, 
-	65, 122, 116, 65, 122, 101, 65, 122, 
-	116, 65, 122, 117, 65, 122, 114, 65, 
-	122, 110, 65, 122, 111, 65, 122, 105, 
-	65, 122, 100, 65, 122, 104, 65, 122, 
-	105, 65, 122, 108, 65, 122, 101, 65, 
-	122, 0
+	9, 13, 48, 57, 65, 90, 97, 122, 
+	48, 57, 61, 61, 61, 65, 90, 97, 
+	122, 108, 65, 90, 97, 122, 115, 65, 
+	90, 97, 122, 101, 65, 90, 97, 122, 
+	102, 110, 65, 90, 97, 122, 116, 65, 
+	90, 97, 122, 101, 65, 90, 97, 122, 
+	116, 65, 90, 97, 122, 117, 65, 90, 
+	97, 122, 114, 65, 90, 97, 122, 110, 
+	65, 90, 97, 122, 111, 65, 90, 97, 
+	122, 105, 65, 90, 97, 122, 100, 65, 
+	90, 97, 122, 104, 65, 90, 97, 122, 
+	105, 65, 90, 97, 122, 108, 65, 90, 
+	97, 122, 101, 65, 90, 97, 122, 0
 };
 
 static const char _CMinusScanner_single_lengths[] = {
@@ -57,53 +61,54 @@ static const char _CMinusScanner_single_lengths[] = {
 };
 
 static const char _CMinusScanner_range_lengths[] = {
-	0, 0, 3, 1, 0, 0, 0, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1
+	0, 0, 4, 1, 0, 0, 0, 2, 
+	2, 2, 2, 2, 2, 2, 2, 2, 
+	2, 2, 2, 2, 2, 2, 2, 2, 
+	2
 };
 
-static const char _CMinusScanner_index_offsets[] = {
-	0, 0, 2, 29, 31, 33, 35, 37, 
-	39, 42, 45, 48, 52, 55, 58, 61, 
-	64, 67, 70, 73, 76, 79, 82, 85, 
-	88
+static const unsigned char _CMinusScanner_index_offsets[] = {
+	0, 0, 2, 30, 32, 34, 36, 38, 
+	41, 45, 49, 53, 58, 62, 66, 70, 
+	74, 78, 82, 86, 90, 94, 98, 102, 
+	106
+};
+
+static const char _CMinusScanner_indicies[] = {
+	0, 1, 3, 2, 4, 5, 6, 7, 
+	8, 9, 10, 11, 13, 14, 15, 16, 
+	18, 19, 20, 21, 22, 23, 24, 25, 
+	26, 2, 12, 17, 17, 1, 12, 27, 
+	29, 28, 31, 30, 33, 32, 17, 17, 
+	34, 36, 17, 17, 35, 37, 17, 17, 
+	35, 38, 17, 17, 35, 39, 40, 17, 
+	17, 35, 41, 17, 17, 35, 42, 17, 
+	17, 35, 43, 17, 17, 35, 44, 17, 
+	17, 35, 45, 17, 17, 35, 46, 17, 
+	17, 35, 47, 17, 17, 35, 48, 17, 
+	17, 35, 49, 17, 17, 35, 50, 17, 
+	17, 35, 51, 17, 17, 35, 52, 17, 
+	17, 35, 53, 17, 17, 35, 0
 };
 
 static const char _CMinusScanner_trans_targs[] = {
 	2, 0, 2, 2, 1, 2, 2, 2, 
-	2, 2, 2, 2, 2, 4, 5, 6, 
-	7, 7, 8, 11, 13, 18, 21, 2, 
-	2, 2, 3, 7, 0, 3, 2, 2, 
-	2, 2, 2, 2, 2, 7, 2, 9, 
-	7, 2, 10, 7, 2, 7, 7, 2, 
-	7, 12, 7, 2, 7, 7, 2, 14, 
-	7, 2, 15, 7, 2, 16, 7, 2, 
-	17, 7, 2, 7, 7, 2, 19, 7, 
-	2, 20, 7, 2, 7, 7, 2, 22, 
-	7, 2, 23, 7, 2, 24, 7, 2, 
-	7, 7, 2, 2, 2, 2, 2, 2, 
-	2, 2, 2, 2, 2, 2, 2, 2, 
-	2, 2, 2, 2, 2, 2, 2, 2, 
-	2, 0
+	2, 2, 2, 2, 3, 2, 4, 5, 
+	6, 7, 2, 2, 8, 11, 13, 18, 
+	21, 2, 2, 2, 2, 2, 2, 2, 
+	2, 2, 2, 2, 9, 10, 7, 7, 
+	12, 7, 14, 15, 16, 17, 7, 19, 
+	20, 7, 22, 23, 24, 7
 };
 
 static const char _CMinusScanner_trans_actions[] = {
-	21, 0, 5, 35, 0, 27, 29, 11, 
-	7, 25, 9, 13, 23, 0, 0, 0, 
-	67, 70, 0, 0, 0, 0, 0, 31, 
-	33, 35, 0, 73, 0, 0, 45, 15, 
-	37, 19, 41, 17, 39, 73, 47, 0, 
-	73, 43, 0, 73, 43, 52, 73, 43, 
-	49, 0, 73, 43, 55, 73, 43, 0, 
-	73, 43, 0, 73, 43, 0, 73, 43, 
-	0, 73, 43, 58, 73, 43, 0, 73, 
-	43, 0, 73, 43, 61, 73, 43, 0, 
-	73, 43, 0, 73, 43, 0, 73, 43, 
-	64, 73, 43, 45, 37, 41, 39, 47, 
-	43, 43, 43, 43, 43, 43, 43, 43, 
-	43, 43, 43, 43, 43, 43, 43, 43, 
-	43, 0
+	21, 0, 39, 5, 0, 27, 29, 11, 
+	7, 25, 9, 13, 0, 23, 0, 0, 
+	0, 71, 31, 33, 0, 0, 0, 0, 
+	0, 35, 37, 49, 41, 15, 45, 19, 
+	43, 17, 51, 47, 0, 0, 56, 53, 
+	0, 59, 0, 0, 0, 0, 62, 0, 
+	0, 65, 0, 0, 0, 68
 };
 
 static const char _CMinusScanner_to_state_actions[] = {
@@ -120,11 +125,11 @@ static const char _CMinusScanner_from_state_actions[] = {
 	0
 };
 
-static const char _CMinusScanner_eof_trans[] = {
-	0, 0, 0, 92, 93, 94, 95, 96, 
-	113, 113, 113, 113, 113, 113, 113, 113, 
-	113, 113, 113, 113, 113, 113, 113, 113, 
-	113
+static const unsigned char _CMinusScanner_eof_trans[] = {
+	0, 0, 0, 28, 29, 31, 33, 35, 
+	36, 36, 36, 36, 36, 36, 36, 36, 
+	36, 36, 36, 36, 36, 36, 36, 36, 
+	36
 };
 
 static const int CMinusScanner_start = 2;
@@ -146,7 +151,7 @@ static const int CMinusScanner_en_main = 2;
     const char *pe = p + [input length];
     const char *eof = pe;
     
-#line 150 "CMScanner.m"
+#line 155 "CMScanner.m"
 	{
 	cs = CMinusScanner_start;
 	ts = 0;
@@ -156,7 +161,7 @@ static const int CMinusScanner_en_main = 2;
 
 #line 150 "objclexer.rl"
     
-#line 160 "CMScanner.m"
+#line 165 "CMScanner.m"
 	{
 	int _klen;
 	unsigned int _trans;
@@ -177,7 +182,7 @@ _resume:
 #line 1 "NONE"
 	{ts = p;}
 	break;
-#line 181 "CMScanner.m"
+#line 186 "CMScanner.m"
 		}
 	}
 
@@ -230,6 +235,7 @@ _resume:
 	}
 
 _match:
+	_trans = _CMinusScanner_indicies[_trans];
 _eof_trans:
 	cs = _CMinusScanner_trans_targs[_trans];
 
@@ -271,93 +277,97 @@ _eof_trans:
 	{act = 7;}
 	break;
 	case 9:
-#line 111 "objclexer.rl"
-	{act = 23;}
-	break;
-	case 10:
-#line 115 "objclexer.rl"
-	{act = 24;}
-	break;
-	case 11:
 #line 127 "objclexer.rl"
 	{act = 27;}
 	break;
-	case 12:
+	case 10:
 #line 23 "objclexer.rl"
 	{te = p+1;{
         lineno += 1;
     }}
 	break;
-	case 13:
+	case 11:
 #line 51 "objclexer.rl"
 	{te = p+1;{
         [result addObject: [CMToken tokenWithType:TokenOpCalcAdd lineno:lineno andInfo:nil]];
     }}
 	break;
-	case 14:
+	case 12:
 #line 55 "objclexer.rl"
 	{te = p+1;{
         [result addObject: [CMToken tokenWithType:TokenOpCalcSub lineno:lineno andInfo:nil]];
     }}
 	break;
-	case 15:
+	case 13:
 #line 59 "objclexer.rl"
 	{te = p+1;{
         [result addObject: [CMToken tokenWithType:TokenOpCalcMul lineno:lineno andInfo:nil]];
     }}
 	break;
-	case 16:
+	case 14:
 #line 63 "objclexer.rl"
 	{te = p+1;{
         [result addObject: [CMToken tokenWithType:TokenOpCalcDiv lineno:lineno andInfo:nil]];
     }}
 	break;
-	case 17:
+	case 15:
 #line 71 "objclexer.rl"
 	{te = p+1;{
         [result addObject: [CMToken tokenWithType:TokenOpRelLE lineno:lineno andInfo:nil]];
     }}
 	break;
-	case 18:
+	case 16:
 #line 79 "objclexer.rl"
 	{te = p+1;{
         [result addObject: [CMToken tokenWithType:TokenOpRelGE lineno:lineno andInfo:nil]];
     }}
 	break;
-	case 19:
+	case 17:
 #line 83 "objclexer.rl"
 	{te = p+1;{
         [result addObject: [CMToken tokenWithType:TokenOpRelEQ lineno:lineno andInfo:nil]];
     }}
 	break;
-	case 20:
+	case 18:
 #line 87 "objclexer.rl"
 	{te = p+1;{
         [result addObject: [CMToken tokenWithType:TokenOpRelNE lineno:lineno andInfo:nil]];
     }}
 	break;
-	case 21:
+	case 19:
 #line 95 "objclexer.rl"
 	{te = p+1;{
         [result addObject: [CMToken tokenWithType:TokenStmtEnd lineno:lineno andInfo:nil]];
     }}
 	break;
-	case 22:
+	case 20:
 #line 99 "objclexer.rl"
 	{te = p+1;{
         [result addObject: [CMToken tokenWithType:TokenComma lineno:lineno andInfo:nil]];
     }}
 	break;
-	case 23:
+	case 21:
 #line 103 "objclexer.rl"
 	{te = p+1;{
         [result addObject: [CMToken tokenWithType:TokenArgsLeft lineno:lineno andInfo:nil]];
     }}
 	break;
-	case 24:
+	case 22:
 #line 107 "objclexer.rl"
 	{te = p+1;{
         [result addObject: [CMToken tokenWithType:TokenArgsRight lineno:lineno andInfo:nil]];
+    }}
+	break;
+	case 23:
+#line 111 "objclexer.rl"
+	{te = p+1;{
+        [result addObject: [CMToken tokenWithType:TokenArrayLeft lineno:lineno andInfo:nil]];
+    }}
+	break;
+	case 24:
+#line 115 "objclexer.rl"
+	{te = p+1;{
+        [result addObject: [CMToken tokenWithType:TokenArrayRight lineno:lineno andInfo:nil]];
     }}
 	break;
 	case 25:
@@ -397,13 +407,13 @@ _eof_trans:
 	case 31:
 #line 127 "objclexer.rl"
 	{te = p;p--;{
-        [result addObject: [CMToken tokenWithType:TokenID lineno:lineno andInfo:@{@"id": [[NSString stringWithCString:ts encoding:NSASCIIStringEncoding] substringToIndex:te-ts+1]}]];
+        [result addObject: [CMToken tokenWithType:TokenID lineno:lineno andInfo:@{@"id": [[NSString stringWithCString:ts encoding:NSASCIIStringEncoding] substringToIndex:te-ts]}]];
     }}
 	break;
 	case 32:
 #line 131 "objclexer.rl"
 	{te = p;p--;{
-        [result addObject: [CMToken tokenWithType:TokenNUM lineno:lineno andInfo:@{@"value": [NSNumber numberWithInt:[[[NSString stringWithCString:ts encoding:NSASCIIStringEncoding] substringToIndex:te-ts+1] intValue]]}]];
+        [result addObject: [CMToken tokenWithType:TokenNUM lineno:lineno andInfo:@{@"value": [NSNumber numberWithInt:[[[NSString stringWithCString:ts encoding:NSASCIIStringEncoding] substringToIndex:te-ts] intValue]]}]];
     }}
 	break;
 	case 33:
@@ -439,19 +449,9 @@ _eof_trans:
         [result addObject: [CMToken tokenWithType:TokenWhile lineno:lineno andInfo:nil]];
     }
 	break;
-	case 23:
-	{{p = ((te))-1;}
-        [result addObject: [CMToken tokenWithType:TokenArrayLeft lineno:lineno andInfo:nil]];
-    }
-	break;
-	case 24:
-	{{p = ((te))-1;}
-        [result addObject: [CMToken tokenWithType:TokenArrayRight lineno:lineno andInfo:nil]];
-    }
-	break;
 	case 27:
 	{{p = ((te))-1;}
-        [result addObject: [CMToken tokenWithType:TokenID lineno:lineno andInfo:@{@"id": [[NSString stringWithCString:ts encoding:NSASCIIStringEncoding] substringToIndex:te-ts+1]}]];
+        [result addObject: [CMToken tokenWithType:TokenID lineno:lineno andInfo:@{@"id": [[NSString stringWithCString:ts encoding:NSASCIIStringEncoding] substringToIndex:te-ts]}]];
     }
 	break;
 	}

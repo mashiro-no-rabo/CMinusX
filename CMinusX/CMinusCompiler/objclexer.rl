@@ -16,7 +16,7 @@
     write data;
 
     number = [0-9]+;
-    identifier = [a-zA-z]+;
+    identifier = [a-zA-Z]+;
 
     main := |*
     
@@ -125,11 +125,11 @@
     };
 
     identifier => {
-        [result addObject: [CMToken tokenWithType:TokenID lineno:lineno andInfo:@{@"id": [[NSString stringWithCString:ts encoding:NSASCIIStringEncoding] substringToIndex:te-ts+1]}]];
+        [result addObject: [CMToken tokenWithType:TokenID lineno:lineno andInfo:@{@"id": [[NSString stringWithCString:ts encoding:NSASCIIStringEncoding] substringToIndex:te-ts]}]];
     };
 
     number => {
-        [result addObject: [CMToken tokenWithType:TokenNUM lineno:lineno andInfo:@{@"value": [NSNumber numberWithInt:[[[NSString stringWithCString:ts encoding:NSASCIIStringEncoding] substringToIndex:te-ts+1] intValue]]}]];
+        [result addObject: [CMToken tokenWithType:TokenNUM lineno:lineno andInfo:@{@"value": [NSNumber numberWithInt:[[[NSString stringWithCString:ts encoding:NSASCIIStringEncoding] substringToIndex:te-ts] intValue]]}]];
     };
     
     space - '\n';
