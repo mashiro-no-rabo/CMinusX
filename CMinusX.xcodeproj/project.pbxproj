@@ -17,6 +17,9 @@
 		4F30302B176B79E6007788FA /* STDeclarationNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F30302A176B79E5007788FA /* STDeclarationNode.m */; };
 		4F30302E176B824D007788FA /* STStatementNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F30302D176B824D007788FA /* STStatementNode.m */; };
 		4F34B99C1778627E00C4421E /* Symbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F34B99B1778627E00C4421E /* Symbol.m */; };
+		4F34B99E1778A87700C4421E /* gcd.cm in Resources */ = {isa = PBXBuildFile; fileRef = 4F34B99D1778A87700C4421E /* gcd.cm */; };
+		4F34B9A01778A97D00C4421E /* sort.cm in Resources */ = {isa = PBXBuildFile; fileRef = 4F34B99F1778A97D00C4421E /* sort.cm */; };
+		4F34B9A31778AA6900C4421E /* CMParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F34B9A21778AA6900C4421E /* CMParserTest.m */; };
 		4F3C37491771ABFE000A2691 /* Sublime Text 2.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4F3C37481771ABFE000A2691 /* Sublime Text 2.icns */; };
 		4F3C374B1771AE86000A2691 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4F3C374A1771AE86000A2691 /* README.md */; };
 		4F3C374E1771AEB9000A2691 /* fact.cmxprj in Resources */ = {isa = PBXBuildFile; fileRef = 4F3C374D1771AEB9000A2691 /* fact.cmxprj */; };
@@ -24,7 +27,6 @@
 		4F776336176CE7720002CB3B /* CMParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F776335176CE7720002CB3B /* CMParser.m */; };
 		4F776339176CE7F90002CB3B /* CMScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F776338176CE7F90002CB3B /* CMScanner.m */; };
 		4F776356176DB2EF0002CB3B /* CMScannerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F776355176DB2EF0002CB3B /* CMScannerTest.m */; };
-		4F776358176DB54E0002CB3B /* test.cm in Resources */ = {isa = PBXBuildFile; fileRef = 4F776357176DB54E0002CB3B /* test.cm */; };
 		4F77635B176DBBE20002CB3B /* CMToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F77635A176DBBE10002CB3B /* CMToken.m */; };
 		4F77635D176DBC890002CB3B /* objclexer.rl in Resources */ = {isa = PBXBuildFile; fileRef = 4F77635C176DBC890002CB3B /* objclexer.rl */; };
 		4F833F4517627300000BFEA6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F833F4417627300000BFEA6 /* Cocoa.framework */; };
@@ -77,6 +79,10 @@
 		4F30302D176B824D007788FA /* STStatementNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STStatementNode.m; path = CMinusCompiler/SyntaxTree/STStatementNode.m; sourceTree = "<group>"; };
 		4F34B99A1778627E00C4421E /* Symbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Symbol.h; path = CMinusCompiler/Symbol.h; sourceTree = "<group>"; };
 		4F34B99B1778627E00C4421E /* Symbol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Symbol.m; path = CMinusCompiler/Symbol.m; sourceTree = "<group>"; };
+		4F34B99D1778A87700C4421E /* gcd.cm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gcd.cm; sourceTree = "<group>"; };
+		4F34B99F1778A97D00C4421E /* sort.cm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sort.cm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
+		4F34B9A11778AA6900C4421E /* CMParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMParserTest.h; sourceTree = "<group>"; };
+		4F34B9A21778AA6900C4421E /* CMParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMParserTest.m; sourceTree = "<group>"; };
 		4F3C37481771ABFE000A2691 /* Sublime Text 2.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "Sublime Text 2.icns"; path = "../Sublime Text 2.icns"; sourceTree = "<group>"; };
 		4F3C374A1771AE86000A2691 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		4F3C374D1771AEB9000A2691 /* fact.cmxprj */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = fact.cmxprj; sourceTree = "<group>"; };
@@ -88,7 +94,6 @@
 		4F776338176CE7F90002CB3B /* CMScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMScanner.m; path = CMinusCompiler/CMScanner.m; sourceTree = "<group>"; };
 		4F776354176DB2EF0002CB3B /* CMScannerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMScannerTest.h; sourceTree = "<group>"; };
 		4F776355176DB2EF0002CB3B /* CMScannerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMScannerTest.m; sourceTree = "<group>"; };
-		4F776357176DB54E0002CB3B /* test.cm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.cm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
 		4F776359176DBBE10002CB3B /* CMToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMToken.h; path = CMinusCompiler/CMToken.h; sourceTree = "<group>"; };
 		4F77635A176DBBE10002CB3B /* CMToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMToken.m; path = CMinusCompiler/CMToken.m; sourceTree = "<group>"; };
 		4F77635C176DBC890002CB3B /* objclexer.rl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = objclexer.rl; path = CMinusCompiler/objclexer.rl; sourceTree = "<group>"; };
@@ -203,11 +208,13 @@
 		4F30301F176ABEA8007788FA /* C- Compiler Test */ = {
 			isa = PBXGroup;
 			children = (
+				4F34B9A41778AA7600C4421E /* Sample Code */,
 				4F303020176ABEC2007788FA /* SymbolTableTest.h */,
 				4F303021176ABEC2007788FA /* SymbolTableTest.m */,
 				4F776354176DB2EF0002CB3B /* CMScannerTest.h */,
 				4F776355176DB2EF0002CB3B /* CMScannerTest.m */,
-				4F776357176DB54E0002CB3B /* test.cm */,
+				4F34B9A11778AA6900C4421E /* CMParserTest.h */,
+				4F34B9A21778AA6900C4421E /* CMParserTest.m */,
 			);
 			name = "C- Compiler Test";
 			sourceTree = "<group>";
@@ -225,6 +232,15 @@
 				4F77632F176C7C1E0002CB3B /* STBaseNode.m */,
 			);
 			name = "Syntax Tree";
+			sourceTree = "<group>";
+		};
+		4F34B9A41778AA7600C4421E /* Sample Code */ = {
+			isa = PBXGroup;
+			children = (
+				4F34B99D1778A87700C4421E /* gcd.cm */,
+				4F34B99F1778A97D00C4421E /* sort.cm */,
+			);
+			name = "Sample Code";
 			sourceTree = "<group>";
 		};
 		4F3C374C1771AEA7000A2691 /* Sample Project */ = {
@@ -418,7 +434,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F303017176ABD4B007788FA /* InfoPlist.strings in Resources */,
-				4F776358176DB54E0002CB3B /* test.cm in Resources */,
+				4F34B99E1778A87700C4421E /* gcd.cm in Resources */,
+				4F34B9A01778A97D00C4421E /* sort.cm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +509,7 @@
 				4F30301A176ABD4B007788FA /* CMinusXTest.m in Sources */,
 				4F303022176ABEC2007788FA /* SymbolTableTest.m in Sources */,
 				4F776356176DB2EF0002CB3B /* CMScannerTest.m in Sources */,
+				4F34B9A31778AA6900C4421E /* CMParserTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
