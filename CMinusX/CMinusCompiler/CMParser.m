@@ -7,8 +7,7 @@
 //
 
 #import "CMParser.h"
-#import "STDeclarationNode.h"
-#import "STStatementNode.h"
+#import "CMXSyntaxTree.h"
 #import "CMToken.h"
 
 @interface CMParser()
@@ -33,39 +32,71 @@
 }
 
 - (STProgramNode *)parse {
-    STProgramNode *root = [STProgramNode new];
+    STProgramNode *prog = [STProgramNode new];
+    prog.decls = [NSMutableArray new];
     while (self.tkpos < [self.tokens count]) {
-        STDeclarationNode *node;
-        node = [self matchDecl];
+        STDeclarationNode *node = [self matchDecl];
+        if (node == nil) {
+            prog = nil;
+        }
+        [prog.decls addObject:node];
     }
-    return root;
+    return prog;
 }
+
 
 - (STDeclarationNode *)matchDecl {
     STDeclarationNode *decl = [STDeclarationNode new];
+    decl.info = [NSMutableDictionary new];
     int oripos = self.tkpos;
     CMToken *tk = self.tokens[self.tkpos];
     if (tk.type == TokenInt) {
         CMToken *idtk = [self nextToken];
         if (idtk.type == TokenID) {
-            if ([self nextToken].type == TokenStmtEnd) {
+            CMToken *typtk = [self nextToken];
+            if (typtk.type == TokenStmtEnd) {
+                // int variable
                 [self.symtab insertSymbolName:[idtk.info objectForKey:@"id"] withInfo:@{@"type": @"int"}];
+                decl.type = STDeclVar;
+                decl.info = [@{@"id": [idtk.info objectForKey:@"id"], @"type": @"int"} mutableCopy];
             }
-            else if ([self nextToken].type == TokenArrayLeft) {
+            else if (typtk.type == TokenArrayLeft) {
+                // array variable
+                CMToken *sizetk = [self nextToken];
+                [self.symtab insertSymbolName:[idtk.info objectForKey:@"id"] withInfo:@{@"type": @"array", @"size": [sizetk.info objectForKey:@"value"]}];
+                decl.type = STDeclVar;
+                decl.info = [@{@"id": [idtk.info objectForKey:@"id"], @"type": @"int", @"size": [sizetk.info objectForKey:@"value"]} mutableCopy];
+            }
+            else if (typtk.type == TokenArgsLeft) {
+                // function return int
                 
+                [self.symtab pushLevel];
+                NSMutableArray *args = [NSMutableArray new];
+                STArgumentNode *arg = [self matchArg];
+                [args addObject:arg];
+                while ([self nextToken].type == TokenComma) {
+                    arg = [self matchArg];
+                    [args addObject:arg];
+                }
+                [self.symtab popLevel];
+                decl.type = STDeclFunc;
             }
-            else if (self.tokens[tmppos+1])
         }
         else {
             return nil;
         }
     }
     else if (tk.type == TokenVoid) {
-        
+        CMToken *idtk = [self nextToken];
     }
     else {
+        self.tkpos = oripos;
         return nil;
     }
+}
+
+- (STArgumentNode *)matchArg {
+    
 }
 
 - (CMToken *)nextToken {

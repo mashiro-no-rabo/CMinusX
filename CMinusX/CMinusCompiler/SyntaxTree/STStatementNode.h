@@ -15,11 +15,21 @@ typedef enum {
     STStmtAssign,
     STStmtOpCalc,
     STStmtOpRel,
-    STStmtCall
+    STStmtCall,
+    STStmtReturn
 } STStmtType;
 
 @interface STStatementNode : STBaseNode
 
 @property STStmtType type;
+
+/*
+ If:
+    cond:
+    true_stmts:
+    false_stmts:
+ 
+*/
+
 
 @end

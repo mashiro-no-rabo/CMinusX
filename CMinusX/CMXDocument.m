@@ -14,6 +14,11 @@
 #import "TinyMachine.h"
 #import "DebugInfoWindowController.h"
 
+typedef enum {
+    CMXModeTM = 0,
+    CMXModeCM
+} cmx_mode;
+
 @interface CMXDocument() <ACEViewDelegate>
 
 @property (weak) IBOutlet ACEView *editor;
@@ -59,14 +64,12 @@
     [self.theme addItemsWithTitles:[ACEThemeNames humanThemeNames]];
     [self.theme selectItemAtIndex:ACEThemeTomorrowNightEighties];
     
-    [self.mode addItemWithTitle:@"TM Inst"];
+    [self.mode addItemsWithTitles:@[@"C-", @"TM Inst"]];
     [self.mode selectItemAtIndex:0];
     [self.editor setDelegate:self];
     [self.editor setMode:ACEModeCPP];
     [self.editor setTheme:ACEThemeTomorrowNightEighties];
     [self.editor setShowPrintMargin:NO];
-//    [self.editor setHighlightActiveLine:NO];
-//    [self.editor setHighlightGutterLine:NO];
     [self.editor setShowInvisibles:YES];
     
     if ([self.savedData objectForKey:@"editorContent"]) {
@@ -75,6 +78,14 @@
     
     if ([self.savedData objectForKey:@"inputContent"]) {
         [self.input setStringValue:[self.savedData objectForKey:@"inputContent"]];
+    }
+    
+    if ([self.savedData objectForKey:@"mode"]) {
+        [self.mode selectItemAtIndex:[(NSNumber *)[self.savedData objectForKey:@"mode"] longValue]];
+    }
+    
+    if ([self.savedData objectForKey:@"theme"]) {
+        [self.theme selectItemAtIndex:[(NSNumber *)[self.savedData objectForKey:@"theme"] longValue]];
     }
 }
 
@@ -95,6 +106,8 @@
     NSKeyedArchiver *ka = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
     [ka encodeObject:self.editor.string forKey:@"editorContent"];
     [ka encodeObject:self.input.stringValue forKey:@"inputContent"];
+    [ka encodeObject:[NSNumber numberWithLong:self.mode.indexOfSelectedItem] forKey:@"mode"];
+    [ka encodeObject:[NSNumber numberWithLong:self.theme.indexOfSelectedItem] forKey:@"theme"];
     [ka finishEncoding];
     return data;
 }
@@ -104,6 +117,8 @@
     NSKeyedUnarchiver *unka = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
     [self.savedData setObject:[unka decodeObjectForKey:@"editorContent"] forKey:@"editorContent"];
     [self.savedData setObject:[unka decodeObjectForKey:@"inputContent"] forKey:@"inputContent"];
+    [self.savedData setObject:[unka decodeObjectForKey:@"mode"] forKey:@"mode"];
+    [self.savedData setObject:[unka decodeObjectForKey:@"theme"] forKey:@"theme"];
     [unka finishDecoding];
     return YES;
 }
@@ -115,6 +130,7 @@
 }
 
 - (IBAction)run:(id)sender {
+//    if (self.mode.indexOfSelectedItem == CMXModeCM)
     self.tm.input = [[self.input stringValue] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@", "]];
     if (!self.debugging) {
         [self.tm fillInstMemWithString:self.editor.string];
