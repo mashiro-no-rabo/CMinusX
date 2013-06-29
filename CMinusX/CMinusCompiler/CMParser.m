@@ -100,7 +100,8 @@
                 NSMutableArray *stmts = [NSMutableArray new];
                 STStatementNode *stmt = [self matchStmt];
                 [stmts addObject:stmt];
-                while (((CMToken *)[self.tokens objectAtIndex:self.tkpos]).type != TokenFuncRight) {
+                while ([self nextToken].type != TokenFuncRight) {
+                    self.tkpos -= 1;
                     stmt = [self matchStmt];
                     [stmts addObject:stmt];
                 }
@@ -437,6 +438,7 @@
             self.tkpos = oripos;
             return nil;
         }
+        stmt.type = STStmtOpCalc;
         [stmt.info setObject:left forKey:@"left"];
         [stmt.info setObject:optk forKey:@"op"];
         [stmt.info setObject:right forKey:@"right"];
@@ -463,6 +465,7 @@
             self.tkpos = oripos;
             return nil;
         }
+        stmt.type = STStmtOpCalc;
         [stmt.info setObject:left forKey:@"left"];
         [stmt.info setObject:optk forKey:@"op"];
         [stmt.info setObject:right forKey:@"right"];
@@ -492,14 +495,29 @@
         if (typtk.type == TokenArrayLeft) {
             // array reference
             CMToken *subtk = [self nextToken];
-            if (subtk.type != TokenNUM) {
-                self.tkpos = oripos;
-                return nil;
+            if (subtk.type == TokenNUM) {
+                // array ref const
+                stmt.type = STStmtVar;
+                [stmt.info setObject:@"elementConst" forKey:@"type"];
+                [stmt.info setObject:[tk.info objectForKey:@"id"] forKey:@"id"];
+                [stmt.info setObject:[subtk.info objectForKey:@"value"] forKey:@"sub"];
+                if ([self nextToken].type != TokenArrayRight) {
+                    self.tkpos = oripos;
+                    return nil;
+                }
             }
-            stmt.type = STStmtVar;
-            [stmt.info setObject:[tk.info objectForKey:@"id"] forKey:@"id"];
-            [stmt.info setObject:[subtk.info objectForKey:@"value"] forKey:@"sub"];
-            if ([self nextToken].type != TokenArrayRight) {
+            else if (subtk.type == TokenID) {
+                // array ref id
+                stmt.type = STStmtVar;
+                [stmt.info setObject:@"elementVar" forKey:@"type"];
+                [stmt.info setObject:[tk.info objectForKey:@"id"] forKey:@"id"];
+                [stmt.info setObject:[subtk.info objectForKey:@"id"] forKey:@"subvar"];
+                if ([self nextToken].type != TokenArrayRight) {
+                    self.tkpos = oripos;
+                    return nil;
+                }
+            }
+            else {
                 self.tkpos = oripos;
                 return nil;
             }
@@ -522,6 +540,7 @@
         }
         else {
             stmt.type = STStmtVar;
+            [stmt.info setObject:@"int" forKey:@"type"];
             [stmt.info setObject:[tk.info objectForKey:@"id"] forKey:@"id"];
             self.tkpos -= 1;
         }
