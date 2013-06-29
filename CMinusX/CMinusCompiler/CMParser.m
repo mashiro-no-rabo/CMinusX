@@ -76,6 +76,10 @@
                     self.tkpos = oripos;
                     return nil;
                 }
+                if ([self nextToken].type != TokenStmtEnd) {
+                    self.tkpos = oripos;
+                    return nil;
+                }
             }
             else if (typtk.type == TokenArgsLeft) {
                 // function return int
@@ -84,12 +88,25 @@
                 NSMutableArray *args = [NSMutableArray new];
                 STArgumentNode *arg = [self matchArg];
                 [args addObject:arg];
-                while ([self nextToken].type == TokenComma) {
+                while (((CMToken *)[self.tokens objectAtIndex:self.tkpos]).type == TokenComma) {
                     arg = [self matchArg];
                     [args addObject:arg];
                 }
+                if ([self nextToken].type != TokenFuncLeft) {
+                    self.tkpos = oripos;
+                    return nil;
+                }
+                NSMutableArray *stmts = [NSMutableArray new];
+                STStatementNode *stmt = [self matchStmt];
+                [stmts addObject:stmt];
+                while (((CMToken *)[self.tokens objectAtIndex:self.tkpos]).type != TokenFuncRight) {
+                    stmt = [self matchStmt];
+                    [stmts addObject:stmt];
+                }
                 [self.symtab popLevel];
                 decl.type = STDeclFunc;
+                [decl.info setObject:@"int" forKey:@"return"];
+                [decl.info setObject:[args copy] forKey:@"args"];
             }
         }
         else {
@@ -98,17 +115,24 @@
         }
     }
     else if (tk.type == TokenVoid) {
+        // function return void
         CMToken *idtk = [self nextToken];
-        [self.symtab pushLevel];
-        NSMutableArray *args = [NSMutableArray new];
-        STArgumentNode *arg = [self matchArg];
-        [args addObject:arg];
-        while ([self nextToken].type == TokenComma) {
-            arg = [self matchArg];
+        if (idtk.type == TokenID) {
+            [self.symtab pushLevel];
+            NSMutableArray *args = [NSMutableArray new];
+            STArgumentNode *arg = [self matchArg];
             [args addObject:arg];
+            while ([self nextToken].type == TokenComma) {
+                arg = [self matchArg];
+                [args addObject:arg];
+            }
+            [self.symtab popLevel];
+            decl.type = STDeclFunc;
         }
-        [self.symtab popLevel];
-        decl.type = STDeclFunc;
+        else {
+            self.tkpos = oripos;
+            return nil;
+        }
     }
     else {
         self.tkpos = oripos;
@@ -130,17 +154,17 @@
             if ((typtk.type == TokenComma) || (typtk.type == TokenArgsRight)) {
                 [arg.info setObject:[idtk.info objectForKey:@"id"] forKey:@"id"];
                 [arg.info setObject:@"int" forKey:@"type"];
+                [self.symtab insertSymbolName:[idtk.info objectForKey:@"id"] withInfo:@{@"type": @"int"}];
             }
             else if (typtk.type == TokenArrayLeft) {
-                CMToken *sizetk = [self nextToken];
-                if (sizetk.type != TokenNUM) {
+                if ([self nextToken].type != TokenArrayRight) {
                     self.tkpos = oripos;
                     return nil;
                 }
                 [arg.info setObject:[idtk.info objectForKey:@"id"] forKey:@"id"];
                 [arg.info setObject:@"array" forKey:@"type"];
-                [arg.info setObject:[sizetk.info objectForKey:@"value"] forKey:@"size"];
-                if ([self nextToken].type != TokenArrayRight) {
+                [self.symtab insertSymbolName:[idtk.info objectForKey:@"id"] withInfo:@{@"type": @"array"}];
+                if (([self nextToken].type != TokenComma) && ([self nextToken].type != TokenArgsRight)) {
                     self.tkpos = oripos;
                     return nil;
                 }
@@ -156,6 +180,33 @@
         return nil;
     }
     return arg;
+}
+
+- (STStatementNode *)matchStmt {
+    STStatementNode *stmt = [STStatementNode new];
+    stmt.info = [NSMutableDictionary new];
+    int oripos = self.tkpos;
+    CMToken *tk = [self nextToken];
+    if (tk.type == TokenInt) {
+        // local variable
+    }
+    else if (tk.type == TokenID) {
+        // assignment or call or oprel or opcalc
+    }
+    else if (tk.type == TokenIf) {
+        // if statement
+    }
+    else if (tk.type == TokenWhile) {
+        // while statement
+    }
+    else if (tk.type == TokenReturn) {
+        // return statement
+    }
+    else {
+        self.tkpos = oripos;
+        return nil;
+    }
+    return stmt;
 }
 
 - (CMToken *)nextToken {

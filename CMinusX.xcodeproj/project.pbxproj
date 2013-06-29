@@ -83,7 +83,7 @@
 		4F30302D176B824D007788FA /* STStatementNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STStatementNode.m; path = CMinusCompiler/SyntaxTree/STStatementNode.m; sourceTree = "<group>"; };
 		4F34B99A1778627E00C4421E /* Symbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Symbol.h; path = CMinusCompiler/Symbol.h; sourceTree = "<group>"; };
 		4F34B99B1778627E00C4421E /* Symbol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Symbol.m; path = CMinusCompiler/Symbol.m; sourceTree = "<group>"; };
-		4F34B99D1778A87700C4421E /* gcd.cm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gcd.cm; sourceTree = "<group>"; };
+		4F34B99D1778A87700C4421E /* gcd.cm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gcd.cm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
 		4F34B99F1778A97D00C4421E /* sort.cm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sort.cm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
 		4F34B9A11778AA6900C4421E /* CMParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMParserTest.h; sourceTree = "<group>"; };
 		4F34B9A21778AA6900C4421E /* CMParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMParserTest.m; sourceTree = "<group>"; };

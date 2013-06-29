@@ -14,9 +14,12 @@
 #import "TinyMachine.h"
 #import "DebugInfoWindowController.h"
 
+#import "CMinusCompiler/CMScanner.h"
+#import "CMinusCompiler/CMParser.h"
+
 typedef enum {
-    CMXModeTM = 0,
-    CMXModeCM
+    CMXModeCM = 0,
+    CMXModeTM
 } cmx_mode;
 
 @interface CMXDocument() <ACEViewDelegate>
@@ -42,8 +45,7 @@ typedef enum {
 
 @implementation CMXDocument
 
-- (id)init
-{
+- (id)init {
     self = [super init];
     if (self) {
         self.tm = [TinyMachine new];
@@ -53,10 +55,7 @@ typedef enum {
     return self;
 }
 
-- (NSString *)windowNibName
-{
-    // Override returning the nib file name of the document
-    // If you need to use a subclass of NSWindowController or if your document supports multiple NSWindowControllers, you should remove this method and override -makeWindowControllers instead.
+- (NSString *)windowNibName {
     return @"CMXDocument";
 }
 
@@ -89,19 +88,15 @@ typedef enum {
     }
 }
 
-- (void)windowControllerDidLoadNib:(NSWindowController *)aController
-{
+- (void)windowControllerDidLoadNib:(NSWindowController *)aController {
     [super windowControllerDidLoadNib:aController];
-    // Add any code here that needs to be executed once the windowController has loaded the document's window.
 }
 
-+ (BOOL)autosavesInPlace
-{
++ (BOOL)autosavesInPlace {
     return YES;
 }
 
-- (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError
-{
+- (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError {
     NSMutableData *data = [NSMutableData new];
     NSKeyedArchiver *ka = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
     [ka encodeObject:self.editor.string forKey:@"editorContent"];
@@ -112,8 +107,7 @@ typedef enum {
     return data;
 }
 
-- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError
-{
+- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError {
     NSKeyedUnarchiver *unka = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
     [self.savedData setObject:[unka decodeObjectForKey:@"editorContent"] forKey:@"editorContent"];
     [self.savedData setObject:[unka decodeObjectForKey:@"inputContent"] forKey:@"inputContent"];
@@ -130,10 +124,17 @@ typedef enum {
 }
 
 - (IBAction)run:(id)sender {
-//    if (self.mode.indexOfSelectedItem == CMXModeCM)
+    
     self.tm.input = [[self.input stringValue] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@", "]];
     if (!self.debugging) {
-        [self.tm fillInstMemWithString:self.editor.string];
+        if (self.mode.indexOfSelectedItem == CMXModeCM) {
+            NSArray *tokens = [CMScanner scan:self.editor.string];
+            CMParser *parser = [[CMParser alloc] initWithTokens:tokens];
+            STProgramNode *prog = [parser parse];
+        }
+        else {
+            [self.tm fillInstMemWithString:self.editor.string];
+        }
         TMStepResult *result = [self.tm run];
         if (result.type == srHALT) {
             [self.output setStringValue:[self.tm.output componentsJoinedByString:@", "]];

@@ -8,6 +8,38 @@
 
 #import "CMToken.h"
 
+NSString *const _TokenName[TokenCommentEnd+1] = {
+    [TokenID] = @"TokenID",
+    [TokenNUM] = @"TokenNUM",
+    [TokenIf] = @"TokenIf",
+    [TokenElse] = @"TokenElse",
+    [TokenInt] = @"TokenInt",
+    [TokenReturn] = @"TokenReturn",
+    [TokenVoid] = @"TokenVoid",
+    [TokenWhile] = @"TokenWhile",
+    [TokenOpCalcAdd] = @"TokenOpCalcAdd",
+    [TokenOpCalcSub] = @"TokenOpCalcSub",
+    [TokenOpCalcMul] = @"TokenOpCalcMul",
+    [TokenOpCalcDiv] = @"TokenOpCalcDiv",
+    [TokenOpRelLT] = @"TokenOpRelLT",
+    [TokenOpRelLE] = @"TokenOpRelLE",
+    [TokenOpRelGT] = @"TokenOpRelGT",
+    [TokenOpRelGE] = @"TokenOpRelGE",
+    [TokenOpRelEQ] = @"TokenOpRelEQ",
+    [TokenOpRelNE] = @"TokenOpRelNE",
+    [TokenAssign] = @"TokenAssign",
+    [TokenStmtEnd] = @"TokenStmtEnd",
+    [TokenComma] = @"TokenComma",
+    [TokenArgsLeft] = @"TokenArgsLeft",
+    [TokenArgsRight] = @"TokenArgsRight",
+    [TokenArrayLeft] = @"TokenArrayLeft",
+    [TokenArrayRight] = @"TokenArrayRight",
+    [TokenFuncLeft] = @"TokenFuncLeft",
+    [TokenFuncRight] = @"TokenFuncRight",
+    [TokenCommentStart] = @"TokenCommentStart",
+    [TokenCommentEnd] = @"TokenCommentEnd"
+};
+
 @implementation CMToken
 
 + (CMToken *)tokenWithType:(TokenType)type lineno:(NSUInteger)lineno andInfo:(NSDictionary *)info {
@@ -27,6 +59,10 @@
     if (self.info != other.info)
         return NO;
     return YES;
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%ld %@ %@", (unsigned long)self.lineno, _TokenName[self.type], self.info];
 }
 
 @end
