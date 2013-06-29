@@ -37,7 +37,7 @@
     while (self.tkpos < [self.tokens count]) {
         STDeclarationNode *node = [self matchDecl];
         if (node == nil) {
-            prog = nil;
+            return nil;
         }
         [prog.decls addObject:node];
     }
@@ -108,6 +108,7 @@
                 decl.type = STDeclFunc;
                 [decl.info setObject:@"int" forKey:@"return"];
                 [decl.info setObject:[args copy] forKey:@"args"];
+                [decl.info setObject:[stmts copy] forKey:@"stmts"];
             }
         }
         else {
@@ -146,6 +147,7 @@
                 decl.type = STDeclFunc;
                 [decl.info setObject:@"void" forKey:@"return"];
                 [decl.info setObject:[args copy] forKey:@"args"];
+                [decl.info setObject:[stmts copy] forKey:@"stmts"];
             }
         }
         else {
@@ -196,7 +198,7 @@
         }
     }
     else if (tk.type == TokenVoid) {
-        [arg.info setObject:YES forKey:@"void"];
+        [arg.info setObject:@"void" forKey:@"type"];
         if ([self nextToken].type != TokenArgsRight) {
             self.tkpos = oripos;
             return nil;
@@ -258,25 +260,150 @@
         }
     }
     else if (tk.type == TokenID) {
-        // assignment or call or oprel or opcalc
+        // assignment or call
         CMToken *typtk = [self nextToken];
         if (typtk.type == TokenAssign) {
             // assignment
-            
+            stmt.type = STStmtAssign;
+            [stmt.info setObject:[tk.info objectForKey:@"id"] forKey:@"id"];
+            [stmt.info setObject:@"var" forKey:@"type"];
+            [stmt.info setObject:[self matchExp] forKey:@"exp"];
+            if ([self nextToken].type != TokenStmtEnd) {
+                self.tkpos = oripos;
+                return nil;
+            }
         }
         else if (typtk.type == TokenArrayLeft) {
             // array element assignment
+            CMToken *subtk = [self nextToken];
+            if (subtk.type != TokenNUM) {
+                self.tkpos = oripos;
+                return nil;
+            }
+            if ([self nextToken].type != TokenArrayRight) {
+                self.tkpos = oripos;
+                return nil;
+            }
+            if ([self nextToken].type != TokenAssign) {
+                self.tkpos = oripos;
+                return nil;
+            }
+            stmt.type = STStmtAssign;
+            [stmt.info setObject:[tk.info objectForKey:@"id"] forKey:@"id"];
+            [stmt.info setObject:[subtk.info objectForKey:@"value"] forKey:@"sub"];
+            [stmt.info setObject:@"element" forKey:@"type"];
+            [stmt.info setObject:[self matchExp] forKey:@"exp"];
+            if ([self nextToken].type != TokenStmtEnd) {
+                self.tkpos = oripos;
+                return nil;
+            }
         }
-
+        else if (typtk.type == TokenArgsLeft) {
+            // function call
+            NSArray *args = [self matchCallArgs];
+            if (args == nil)
+            {
+                self.tkpos = oripos;
+                return nil;
+            }
+            stmt.type = STStmtCall;
+            [stmt.info setObject:args forKey:@"args"];
+            [stmt.info setObject:[tk.info objectForKey:@"id"] forKey:@"id"];
+            if ([self nextToken].type != TokenArgsRight) {
+                self.tkpos = oripos;
+                return nil;
+            }
+        }
     }
     else if (tk.type == TokenIf) {
         // if statement
+        stmt.type = STStmtIf;
+        if ([self nextToken].type != TokenArgsLeft) {
+            self.tkpos = oripos;
+            return nil;
+        }
+        [stmt.info setObject:[self matchExp] forKey:@"left"];
+        [stmt.info setObject:[self nextToken] forKey:@"op"];
+        [stmt.info setObject:[self matchExp] forKey:@"right"];
+        if ([self nextToken].type != TokenArgsRight) {
+            self.tkpos = oripos;
+            return nil;
+        }
+        CMToken *bracetk = [self nextToken];
+        if (bracetk.type == TokenFuncLeft) {
+            // multiple exp
+            NSMutableArray *stmts = [NSMutableArray new];
+            STStatementNode *stmt = [self matchStmt];
+            [stmts addObject:stmt];
+            while (((CMToken *)[self.tokens objectAtIndex:self.tkpos]).type != TokenFuncRight) {
+                stmt = [self matchStmt];
+                [stmts addObject:stmt];
+            }
+            [stmt.info setObject:[stmts copy] forKey:@"stmts"];
+            if ([self nextToken].type != TokenFuncRight) {
+                self.tkpos = oripos;
+                return nil;
+            }
+        }
+        else {
+            // single exp
+            self.tkpos -= 1;
+            [stmt.info setObject:[self matchExp] forKey:@"stmts"];
+        }
     }
     else if (tk.type == TokenWhile) {
         // while statement
+        stmt.type = STStmtWhile;
+        if ([self nextToken].type != TokenArgsLeft) {
+            self.tkpos = oripos;
+            return nil;
+        }
+        [stmt.info setObject:[self matchExp] forKey:@"left"];
+        [stmt.info setObject:[self nextToken] forKey:@"op"];
+        [stmt.info setObject:[self matchExp] forKey:@"right"];
+        if ([self nextToken].type != TokenArgsRight) {
+            self.tkpos = oripos;
+            return nil;
+        }
+        CMToken *bracetk = [self nextToken];
+        if (bracetk.type == TokenFuncLeft) {
+            // multiple exp
+            NSMutableArray *stmts = [NSMutableArray new];
+            STStatementNode *stmt = [self matchStmt];
+            [stmts addObject:stmt];
+            while (((CMToken *)[self.tokens objectAtIndex:self.tkpos]).type != TokenFuncRight) {
+                stmt = [self matchStmt];
+                [stmts addObject:stmt];
+            }
+            [stmt.info setObject:[stmts copy] forKey:@"stmts"];
+            if ([self nextToken].type != TokenFuncRight) {
+                self.tkpos = oripos;
+                return nil;
+            }
+        }
+        else {
+            // single exp
+            self.tkpos -= 1;
+            [stmt.info setObject:[self matchExp] forKey:@"stmts"];
+        }
     }
     else if (tk.type == TokenReturn) {
         // return statement
+        stmt.type = STStmtReturn;
+        CMToken *typtk = [self nextToken];
+        if (typtk.type == TokenStmtEnd) {
+            // return nothing
+            [stmt.info setObject:nil forKey:@"exp"];
+        }
+        else {
+            // return exp
+            self.tkpos -= 1;
+            [stmt.info setObject:[self matchExp] forKey:@"exp"];
+            if ([self nextToken].type != TokenStmtEnd) {
+                self.tkpos = oripos;
+                return nil;
+            }
+        }
     }
     else {
         self.tkpos = oripos;
@@ -296,8 +423,28 @@
 */
 
 - (STStatementNode *)matchExp {
-    STStatementNode *stmt = [self matchTerm];
-    
+    STStatementNode *stmt = [STStatementNode new];
+    stmt.info = [NSMutableDictionary new];
+    STStatementNode *left = [self matchTerm];
+    if (left == nil) {
+        return nil;
+    }
+    int oripos = self.tkpos;
+    CMToken *optk = [self nextToken];
+    if ((optk.type == TokenOpCalcAdd) || (optk.type == TokenOpCalcSub)) {
+        STStatementNode *right = [self matchFactor];
+        if (right == nil) {
+            self.tkpos = oripos;
+            return nil;
+        }
+        [stmt.info setObject:left forKey:@"left"];
+        [stmt.info setObject:optk forKey:@"op"];
+        [stmt.info setObject:right forKey:@"right"];
+    }
+    else {
+        stmt = left;
+        self.tkpos = oripos;
+    }
     return stmt;
 }
 
@@ -317,7 +464,7 @@
             return nil;
         }
         [stmt.info setObject:left forKey:@"left"];
-        [stmt.info setObject:optk.type forKey:@"op"];
+        [stmt.info setObject:optk forKey:@"op"];
         [stmt.info setObject:right forKey:@"right"];
     }
     else {
@@ -345,16 +492,38 @@
         if (typtk.type == TokenArrayLeft) {
             // array reference
             CMToken *subtk = [self nextToken];
-#warning array reference not implemented
+            if (subtk.type != TokenNUM) {
+                self.tkpos = oripos;
+                return nil;
+            }
+            stmt.type = STStmtVar;
+            [stmt.info setObject:[tk.info objectForKey:@"id"] forKey:@"id"];
+            [stmt.info setObject:[subtk.info objectForKey:@"value"] forKey:@"sub"];
+            if ([self nextToken].type != TokenArrayRight) {
+                self.tkpos = oripos;
+                return nil;
+            }
         }
         else if (typtk.type == TokenArgsLeft) {
             // function call
             NSArray *args = [self matchCallArgs];
-#warning function call not implemented
+            if (args == nil)
+            {
+                self.tkpos = oripos;
+                return nil;
+            }
+            stmt.type = STStmtCall;
+            [stmt.info setObject:args forKey:@"args"];
+            [stmt.info setObject:[tk.info objectForKey:@"id"] forKey:@"id"];
+            if ([self nextToken].type != TokenArgsRight) {
+                self.tkpos = oripos;
+                return nil;
+            }
         }
         else {
             stmt.type = STStmtVar;
-            
+            [stmt.info setObject:[tk.info objectForKey:@"id"] forKey:@"id"];
+            self.tkpos -= 1;
         }
         
     }
@@ -371,7 +540,43 @@
 }
 
 - (NSArray *)matchCallArgs {
-    
+    NSMutableArray *args = [NSMutableArray new];
+    int oripos = self.tkpos;
+    int oldpos = oripos;
+    CMToken *idtk = [self nextToken];
+    while ((idtk.type == TokenID) || (idtk.type == TokenNUM)) {
+        STArgumentNode *arg = [STArgumentNode new];
+        arg.info = [NSMutableDictionary new];
+        if (idtk.type == TokenID) {
+            // variable arg
+            [arg.info setObject:[idtk.info objectForKey:@"id"] forKey:@"id"];
+            oldpos = self.tkpos;
+            idtk = [self nextToken];
+            if (idtk.type == TokenArrayLeft) {
+                // array element
+                CMToken *subtk = [self nextToken];
+                if (subtk.type != TokenNUM) {
+                    self.tkpos = oripos;
+                    return nil;
+                }
+                [arg.info setObject:@"element" forKey:@"type"];
+                [arg.info setObject:[subtk.info objectForKey:@"value"] forKey:@"sub"];
+            }
+            else {
+                [arg.info setObject:@"int" forKey:@"type"];
+            }
+        }
+        else {
+            // const arg
+            [arg.info setObject:@"const" forKey:@"type"];
+            [arg.info setObject:[idtk.info objectForKey:@"value"] forKey:@"value"];
+            oldpos = self.tkpos;
+            idtk = [self nextToken];
+        }
+        [args addObject:arg];
+    }
+    self.tkpos = oldpos;
+    return [args copy];
 }
 
 - (CMToken *)nextToken {

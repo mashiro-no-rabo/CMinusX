@@ -11,8 +11,6 @@
 #import "STDeclarationNode.h"
 #import "STStatementNode.h"
 #import "STArgumentNode.h"
-#import "STVariableNode.h"
-#import "STConstNode.h"
 
 @interface CMXSyntaxTree : NSObject
 
