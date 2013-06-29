@@ -16,7 +16,10 @@ typedef enum {
     STStmtOpCalc,
     STStmtOpRel,
     STStmtCall,
-    STStmtReturn
+    STStmtReturn,
+    STStmtLocalDecl,
+    STStmtVar,
+    STStmtConst
 } STStmtType;
 
 @interface STStatementNode : STBaseNode

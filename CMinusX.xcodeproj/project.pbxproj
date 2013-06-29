@@ -30,8 +30,6 @@
 		4F77635B176DBBE20002CB3B /* CMToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F77635A176DBBE10002CB3B /* CMToken.m */; };
 		4F77635D176DBC890002CB3B /* objclexer.rl in Resources */ = {isa = PBXBuildFile; fileRef = 4F77635C176DBC890002CB3B /* objclexer.rl */; };
 		4F7FDA2E177DB08600469E95 /* STArgumentNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7FDA2D177DB08600469E95 /* STArgumentNode.m */; };
-		4F7FDA31177DB09800469E95 /* STVariableNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7FDA30177DB09800469E95 /* STVariableNode.m */; };
-		4F7FDA34177DB0AB00469E95 /* STConstNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7FDA33177DB0AB00469E95 /* STConstNode.m */; };
 		4F7FDA37177DBD9500469E95 /* CMXSyntaxTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7FDA36177DBD9500469E95 /* CMXSyntaxTree.m */; };
 		4F833F4517627300000BFEA6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F833F4417627300000BFEA6 /* Cocoa.framework */; };
 		4F833F4F17627300000BFEA6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F833F4D17627300000BFEA6 /* InfoPlist.strings */; };
@@ -103,10 +101,6 @@
 		4F77635C176DBC890002CB3B /* objclexer.rl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = objclexer.rl; path = CMinusCompiler/objclexer.rl; sourceTree = "<group>"; };
 		4F7FDA2C177DB08600469E95 /* STArgumentNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STArgumentNode.h; path = CMinusCompiler/SyntaxTree/STArgumentNode.h; sourceTree = "<group>"; };
 		4F7FDA2D177DB08600469E95 /* STArgumentNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STArgumentNode.m; path = CMinusCompiler/SyntaxTree/STArgumentNode.m; sourceTree = "<group>"; };
-		4F7FDA2F177DB09800469E95 /* STVariableNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STVariableNode.h; path = CMinusCompiler/SyntaxTree/STVariableNode.h; sourceTree = "<group>"; };
-		4F7FDA30177DB09800469E95 /* STVariableNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STVariableNode.m; path = CMinusCompiler/SyntaxTree/STVariableNode.m; sourceTree = "<group>"; };
-		4F7FDA32177DB0AB00469E95 /* STConstNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STConstNode.h; path = CMinusCompiler/SyntaxTree/STConstNode.h; sourceTree = "<group>"; };
-		4F7FDA33177DB0AB00469E95 /* STConstNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STConstNode.m; path = CMinusCompiler/SyntaxTree/STConstNode.m; sourceTree = "<group>"; };
 		4F7FDA35177DBD9500469E95 /* CMXSyntaxTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMXSyntaxTree.h; path = CMinusCompiler/SyntaxTree/CMXSyntaxTree.h; sourceTree = "<group>"; };
 		4F7FDA36177DBD9500469E95 /* CMXSyntaxTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMXSyntaxTree.m; path = CMinusCompiler/SyntaxTree/CMXSyntaxTree.m; sourceTree = "<group>"; };
 		4F833F4117627300000BFEA6 /* CMinusX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CMinusX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,10 +240,6 @@
 				4F77632F176C7C1E0002CB3B /* STBaseNode.m */,
 				4F7FDA2C177DB08600469E95 /* STArgumentNode.h */,
 				4F7FDA2D177DB08600469E95 /* STArgumentNode.m */,
-				4F7FDA2F177DB09800469E95 /* STVariableNode.h */,
-				4F7FDA30177DB09800469E95 /* STVariableNode.m */,
-				4F7FDA32177DB0AB00469E95 /* STConstNode.h */,
-				4F7FDA33177DB0AB00469E95 /* STConstNode.m */,
 			);
 			name = "Syntax Tree";
 			sourceTree = "<group>";
@@ -553,8 +543,6 @@
 				4F77635B176DBBE20002CB3B /* CMToken.m in Sources */,
 				4F34B99C1778627E00C4421E /* Symbol.m in Sources */,
 				4F7FDA2E177DB08600469E95 /* STArgumentNode.m in Sources */,
-				4F7FDA31177DB09800469E95 /* STVariableNode.m in Sources */,
-				4F7FDA34177DB0AB00469E95 /* STConstNode.m in Sources */,
 				4F7FDA37177DBD9500469E95 /* CMXSyntaxTree.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
