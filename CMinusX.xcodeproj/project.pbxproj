@@ -22,7 +22,6 @@
 		4F34B9A31778AA6900C4421E /* CMParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F34B9A21778AA6900C4421E /* CMParserTest.m */; };
 		4F3C37491771ABFE000A2691 /* Sublime Text 2.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4F3C37481771ABFE000A2691 /* Sublime Text 2.icns */; };
 		4F3C374B1771AE86000A2691 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4F3C374A1771AE86000A2691 /* README.md */; };
-		4F3C374E1771AEB9000A2691 /* fact.cmxprj in Resources */ = {isa = PBXBuildFile; fileRef = 4F3C374D1771AEB9000A2691 /* fact.cmxprj */; };
 		4F776330176C7C1E0002CB3B /* STBaseNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F77632F176C7C1E0002CB3B /* STBaseNode.m */; };
 		4F776336176CE7720002CB3B /* CMParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F776335176CE7720002CB3B /* CMParser.m */; };
 		4F776339176CE7F90002CB3B /* CMScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F776338176CE7F90002CB3B /* CMScanner.m */; };
@@ -461,7 +460,6 @@
 				4F77635D176DBC890002CB3B /* objclexer.rl in Resources */,
 				4F3C37491771ABFE000A2691 /* Sublime Text 2.icns in Resources */,
 				4F3C374B1771AE86000A2691 /* README.md in Resources */,
-				4F3C374E1771AEB9000A2691 /* fact.cmxprj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

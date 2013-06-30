@@ -85,6 +85,7 @@ typedef enum {
     
     if ([self.savedData objectForKey:@"theme"]) {
         [self.theme selectItemAtIndex:[(NSNumber *)[self.savedData objectForKey:@"theme"] longValue]];
+        [self.editor setTheme:[self.theme indexOfSelectedItem]];
     }
 }
 
