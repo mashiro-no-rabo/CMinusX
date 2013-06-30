@@ -40,6 +40,7 @@
 		4F833F6C17627659000BFEA6 /* TinyMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F833F6717627659000BFEA6 /* TinyMachine.m */; };
 		4F833F6D17627659000BFEA6 /* TMInst.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F833F6917627659000BFEA6 /* TMInst.m */; };
 		4F833F6E17627659000BFEA6 /* TMStepResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F833F6B17627659000BFEA6 /* TMStepResult.m */; };
+		4FBD0BC01780C41700C46DB3 /* CMCodeGener.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD0BBF1780C41700C46DB3 /* CMCodeGener.m */; };
 		4FDD1D6D17649FA700B56F4D /* DebugInfoWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDD1D6B17649FA700B56F4D /* DebugInfoWindowController.m */; };
 		4FDD1D6E17649FA700B56F4D /* DebugInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FDD1D6C17649FA700B56F4D /* DebugInfo.xib */; };
 		B2B8A394C7DC4132954132B1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF87A7103AA48178E9604FA /* libPods.a */; };
@@ -86,7 +87,6 @@
 		4F34B9A21778AA6900C4421E /* CMParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMParserTest.m; sourceTree = "<group>"; };
 		4F3C37481771ABFE000A2691 /* Sublime Text 2.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "Sublime Text 2.icns"; path = "../Sublime Text 2.icns"; sourceTree = "<group>"; };
 		4F3C374A1771AE86000A2691 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
-		4F3C374D1771AEB9000A2691 /* fact.cmxprj */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = fact.cmxprj; sourceTree = "<group>"; };
 		4F77632E176C7C1E0002CB3B /* STBaseNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STBaseNode.h; path = CMinusCompiler/SyntaxTree/STBaseNode.h; sourceTree = "<group>"; };
 		4F77632F176C7C1E0002CB3B /* STBaseNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STBaseNode.m; path = CMinusCompiler/SyntaxTree/STBaseNode.m; sourceTree = "<group>"; };
 		4F776334176CE7710002CB3B /* CMParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMParser.h; path = CMinusCompiler/CMParser.h; sourceTree = "<group>"; };
@@ -122,6 +122,8 @@
 		4F833F6917627659000BFEA6 /* TMInst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMInst.m; path = TinyMachine/TMInst.m; sourceTree = "<group>"; };
 		4F833F6A17627659000BFEA6 /* TMStepResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMStepResult.h; path = TinyMachine/TMStepResult.h; sourceTree = "<group>"; };
 		4F833F6B17627659000BFEA6 /* TMStepResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMStepResult.m; path = TinyMachine/TMStepResult.m; sourceTree = "<group>"; };
+		4FBD0BBE1780C41700C46DB3 /* CMCodeGener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMCodeGener.h; path = CMinusCompiler/CMCodeGener.h; sourceTree = "<group>"; };
+		4FBD0BBF1780C41700C46DB3 /* CMCodeGener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMCodeGener.m; path = CMinusCompiler/CMCodeGener.m; sourceTree = "<group>"; };
 		4FDD1D6A17649FA700B56F4D /* DebugInfoWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugInfoWindowController.h; path = DebugInfo/DebugInfoWindowController.h; sourceTree = "<group>"; };
 		4FDD1D6B17649FA700B56F4D /* DebugInfoWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DebugInfoWindowController.m; path = DebugInfo/DebugInfoWindowController.m; sourceTree = "<group>"; };
 		4FDD1D6C17649FA700B56F4D /* DebugInfo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DebugInfo.xib; path = DebugInfo/DebugInfo.xib; sourceTree = "<group>"; };
@@ -162,6 +164,8 @@
 		4F296571176DF3A600860C7A /* Scanner */ = {
 			isa = PBXGroup;
 			children = (
+				4F776359176DBBE10002CB3B /* CMToken.h */,
+				4F77635A176DBBE10002CB3B /* CMToken.m */,
 				4F296570176DF39200860C7A /* Ragel */,
 				4F776337176CE7F90002CB3B /* CMScanner.h */,
 				4F776338176CE7F90002CB3B /* CMScanner.m */,
@@ -172,6 +176,7 @@
 		4F296572176DF3BA00860C7A /* Parser */ = {
 			isa = PBXGroup;
 			children = (
+				4F303025176B7356007788FA /* Syntax Tree */,
 				4F34B99A1778627E00C4421E /* Symbol.h */,
 				4F34B99B1778627E00C4421E /* Symbol.m */,
 				4F303006176AB3A3007788FA /* SymbolTable.h */,
@@ -185,6 +190,8 @@
 		4F296573176DF3F200860C7A /* CodeGen */ = {
 			isa = PBXGroup;
 			children = (
+				4FBD0BBE1780C41700C46DB3 /* CMCodeGener.h */,
+				4FBD0BBF1780C41700C46DB3 /* CMCodeGener.m */,
 			);
 			name = CodeGen;
 			sourceTree = "<group>";
@@ -229,14 +236,14 @@
 			children = (
 				4F7FDA35177DBD9500469E95 /* CMXSyntaxTree.h */,
 				4F7FDA36177DBD9500469E95 /* CMXSyntaxTree.m */,
+				4F77632E176C7C1E0002CB3B /* STBaseNode.h */,
+				4F77632F176C7C1E0002CB3B /* STBaseNode.m */,
 				4F303026176B738B007788FA /* STProgramNode.h */,
 				4F303027176B738B007788FA /* STProgramNode.m */,
 				4F303029176B79E5007788FA /* STDeclarationNode.h */,
 				4F30302A176B79E5007788FA /* STDeclarationNode.m */,
 				4F30302C176B824D007788FA /* STStatementNode.h */,
 				4F30302D176B824D007788FA /* STStatementNode.m */,
-				4F77632E176C7C1E0002CB3B /* STBaseNode.h */,
-				4F77632F176C7C1E0002CB3B /* STBaseNode.m */,
 				4F7FDA2C177DB08600469E95 /* STArgumentNode.h */,
 				4F7FDA2D177DB08600469E95 /* STArgumentNode.m */,
 			);
@@ -252,20 +259,11 @@
 			name = "Sample Code";
 			sourceTree = "<group>";
 		};
-		4F3C374C1771AEA7000A2691 /* Sample Project */ = {
-			isa = PBXGroup;
-			children = (
-				4F3C374D1771AEB9000A2691 /* fact.cmxprj */,
-			);
-			name = "Sample Project";
-			sourceTree = "<group>";
-		};
 		4F833F3817627300000BFEA6 = {
 			isa = PBXGroup;
 			children = (
 				4F833F4A17627300000BFEA6 /* CMinusX */,
 				4F303012176ABD4A007788FA /* CMinusXTest */,
-				4F3C374C1771AEA7000A2691 /* Sample Project */,
 				4F833F4317627300000BFEA6 /* Frameworks */,
 				4F833F4217627300000BFEA6 /* Products */,
 				ABB7B252BAA74156B83B13D5 /* Pods.xcconfig */,
@@ -347,10 +345,7 @@
 		4FDD1D6417645CBA00B56F4D /* C- Compiler */ = {
 			isa = PBXGroup;
 			children = (
-				4F776359176DBBE10002CB3B /* CMToken.h */,
-				4F77635A176DBBE10002CB3B /* CMToken.m */,
 				4F296571176DF3A600860C7A /* Scanner */,
-				4F303025176B7356007788FA /* Syntax Tree */,
 				4F296572176DF3BA00860C7A /* Parser */,
 				4F296573176DF3F200860C7A /* CodeGen */,
 			);
@@ -542,6 +537,7 @@
 				4F34B99C1778627E00C4421E /* Symbol.m in Sources */,
 				4F7FDA2E177DB08600469E95 /* STArgumentNode.m in Sources */,
 				4F7FDA37177DBD9500469E95 /* CMXSyntaxTree.m in Sources */,
+				4FBD0BC01780C41700C46DB3 /* CMCodeGener.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

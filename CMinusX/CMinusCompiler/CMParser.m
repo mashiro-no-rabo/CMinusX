@@ -7,7 +7,6 @@
 //
 
 #import "CMParser.h"
-#import "CMXSyntaxTree.h"
 #import "CMToken.h"
 
 @interface CMParser()

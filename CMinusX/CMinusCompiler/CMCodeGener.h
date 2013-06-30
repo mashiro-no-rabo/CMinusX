@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CMXSyntaxTree.h"
 
 @interface CMCodeGener : NSObject
 

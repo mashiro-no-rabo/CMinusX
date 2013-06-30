@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "STProgramNode.h"
+#import "CMXSyntaxTree.h"
 #import "SymbolTable.h"
 
 @interface CMParser : NSObject
